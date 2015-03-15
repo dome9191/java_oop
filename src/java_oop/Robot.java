@@ -13,7 +13,7 @@ public class Robot extends GameObject {
 	
 	
 	public void Jump(){
-		
+		//nem vagyok robot
 	}
 	
 	//int vektor lesz itt?
