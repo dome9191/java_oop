@@ -10,7 +10,9 @@ public class Robot extends GameObject {
 	private int putty;
 	private boolean isOnTrack;
 	
-	
+	public Vector<Integer> GetPosition(){
+		return position;
+	}
 	
 	public void Jump(){
 		//nem vagyok robot

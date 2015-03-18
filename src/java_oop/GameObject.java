@@ -5,9 +5,9 @@ import java.util.Vector;
 
 public abstract class GameObject implements Drawable {
 	
-	private Vector<Integer> position;
-	private int radius;
-	private Color color;
+	protected Vector<Integer> position;
+	protected int radius;
+	protected Color color;
 	
 	
 	public boolean Collision(Vector<Integer> pos){
