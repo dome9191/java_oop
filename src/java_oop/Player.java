@@ -40,8 +40,7 @@ public class Player {
 		
 	}
 	
-	/*	továbbra sem fogja elérni a robot privát változóját, de benne
-	 *	van a class diagramban*/
+	
 	public void SetObstaclesCount(int newvalue){
 		
 	}

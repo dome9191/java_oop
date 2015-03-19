@@ -4,8 +4,7 @@ import java.util.Vector;
 
 public class Robot extends GameObject {
 	
-	//sztem sima double legyen a speed
-	private Vector<Double> speed;
+	private Vector<Integer> speed;
 	private int oil;
 	private int putty;
 	private boolean isOnTrack;
@@ -18,7 +17,6 @@ public class Robot extends GameObject {
 		//nem vagyok robot
 	}
 	
-	//int vektor lesz itt?
 	public void Modify(Vector<Integer> modvalue, int obstacle){
 		
 	}
@@ -38,5 +36,21 @@ public class Robot extends GameObject {
 	
 	public void Affect(Robot robot){
 		
+	}
+	
+	public void SetOilCount(int newvalue){
+		
+	}
+	
+	public void SetPuttyCount(int newvalue){
+		
+	}
+	
+	public int GetOilCount(){
+		return oil;
+	}
+	
+	public int GetPuttyCount(){
+		return putty;
 	}
 }
