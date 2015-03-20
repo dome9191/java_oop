@@ -17,7 +17,7 @@ public class Robot extends GameObject {
 		//nem vagyok robot
 	}
 	
-	public void Modify(Vector<Integer> modvalue, int obstacle){
+	public void Modify(Vector<Integer> modvalue){
 		
 	}
 	
@@ -29,9 +29,8 @@ public class Robot extends GameObject {
 		return isOnTrack;
 	}
 	
-	public boolean Collision(Vector<Integer> pos){
+	public void Collision(Vector<Integer> pos){
 		
-		return false;
 	}
 	
 	public void Affect(Robot robot){

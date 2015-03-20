@@ -41,4 +41,8 @@ public class GameObjectContainer {
 		return robots;
 		
 	}
+	
+	public void AddRaceTrack(RaceTrack raceTrack){
+		
+	}
 }

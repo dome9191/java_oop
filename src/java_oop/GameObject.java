@@ -10,9 +10,8 @@ public abstract class GameObject implements Drawable {
 	protected Color color;
 	
 	
-	public boolean Collision(Vector<Integer> pos){
+	public void Collision(Vector<Integer> pos){
 		
-		return false;
 	}
 	
 	public void Affect(Robot robot){
