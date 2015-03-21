@@ -30,14 +30,25 @@ public class Player {
 	}
 	
 	public void CreateOil(){
-		
+		Test.PrintLog("A játékos úgy döntött lerak egy olajfoltot.");
 	}
 	
 	public void CreatePutty(){
-		
+		Test.PrintLog();
 	}
 	
 	public void Turn(){
+		Test.PrintLog();
+		robot.GetIsOnTrack();
+		robot.Collision();
+		//testcode
+		CreateOil();
+		//testcode
+		Oil testOil = new Oil();
+		//testcode
+		testOil.Init(robot.GetPosition());
+		//testcode
+		robot.Jump();
 		
 	}
 	

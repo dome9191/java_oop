@@ -15,11 +15,12 @@ public final class GameObjectContainer {
 	}
 	
 	public static List<Obstacle> GetObstacles(){
+		Test.PrintLog();
 		return obstacles;
 	}
 	
 	public static void AddObstacle(Obstacle addThis){
-		
+		Test.PrintLog();
 		obstacles.add(addThis);
 		
 	}

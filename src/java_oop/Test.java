@@ -6,11 +6,12 @@ import java.util.Scanner;
 
 public final class Test {
 
+	private static int muted = 0;
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int selector = 0;
-		Scanner in = new Scanner(System.in); 
-		Game testGame = new Game();
+		Scanner in = new Scanner(System.in);  
 		
 		while(true)
 		{
@@ -27,11 +28,16 @@ public final class Test {
 			switch(selector)
 			{
 			case 1:
+				Game testGame = new Game();
 				testGame.AddPlayer();
 				testGame.AddPlayer();
 				testGame.SetEnvironment(new Date(0,0,0,0,2,0), new Date(0,0,0,0,0,10));
 				break;
 			case 2:
+				Mute();
+				Player testPlayer = new Player();
+				Unmute();
+				testPlayer.Turn();
 				break;
 			case 3:
 				break;
@@ -51,10 +57,32 @@ public final class Test {
 	
 	public static void PrintLog()
 	{
-		final StackTraceElement[] ste = Thread.currentThread().getStackTrace();
-		for(int i=0; i<ste.length-4; i++){
-			System.out.print("\t");
+		if(muted != 1){
+			final StackTraceElement[] ste = Thread.currentThread().getStackTrace();
+			for(int i=0; i<ste.length-4; i++){
+				System.out.print("\t");
+			}
+			System.out.println(ste[2].getClassName() + "\t" + ste[2].getMethodName());
 		}
-		System.out.println(ste[2].getClassName() + "\t" + ste[2].getMethodName());
+	}
+	
+	public static void PrintLog(String message)
+	{
+		if(muted != 1){
+			final StackTraceElement[] ste = Thread.currentThread().getStackTrace();
+			for(int i=0; i<ste.length-4; i++){
+				System.out.print("\t");
+			}
+			System.out.println(ste[2].getClassName() + "\t" + ste[2].getMethodName());
+			System.out.println(message);
+		}
+	}
+	
+	public static void Mute(){
+		muted = 1;
+	}
+	
+	public static void Unmute(){
+		muted = 0;
 	}
 }

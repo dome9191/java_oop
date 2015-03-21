@@ -15,11 +15,13 @@ public class Robot extends GameObject {
 	}
 	
 	public Vector<Integer> GetPosition(){
+		Test.PrintLog();
 		return position;
 	}
 	
 	public void Jump(){
 		//nem vagyok robot
+		Test.PrintLog("A játékos úgy dönt ugrik.");
 	}
 	
 	public void Modify(Vector<Integer> modvalue){
@@ -31,11 +33,15 @@ public class Robot extends GameObject {
 	}
 	
 	public boolean GetIsOnTrack(){
+		Test.PrintLog("A robot a pályán van.");
+		//testcode
+		isOnTrack = true;
 		return isOnTrack;
 	}
 	
-	public void Collision(Vector<Integer> pos){
-		
+	public void Collision(){
+		Test.PrintLog();
+		GameObjectContainer.GetObstacles();
 	}
 	
 	public void Affect(Robot robot){
