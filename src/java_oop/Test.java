@@ -1,6 +1,7 @@
 package java_oop;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Scanner;
 
 public final class Test {
@@ -26,7 +27,9 @@ public final class Test {
 			switch(selector)
 			{
 			case 1:
-				testGame.Start();
+				testGame.AddPlayer();
+				testGame.AddPlayer();
+				testGame.SetEnvironment(new Date(0,0,0,0,2,0), new Date(0,0,0,0,0,10));
 				break;
 			case 2:
 				break;
@@ -46,10 +49,12 @@ public final class Test {
 		
 	}
 	
-	public static void PrintLog(int dif)
+	public static void PrintLog()
 	{
 		final StackTraceElement[] ste = Thread.currentThread().getStackTrace();
-		System.out.println(ste[ste.length - 1 - dif].getClassName() + "\t" + ste[ste.length - 1 - dif].getMethodName());
-		System.out.println();
+		for(int i=0; i<ste.length-4; i++){
+			System.out.print("\t");
+		}
+		System.out.println(ste[2].getClassName() + "\t" + ste[2].getMethodName());
 	}
 }

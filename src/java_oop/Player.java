@@ -10,8 +10,13 @@ public class Player {
 	private Robot robot;
 	private double Distance;
 	
+	public Player(){
+		Test.PrintLog();
+		robot = new Robot();
+	}
+	
 	public void SetTurnTime(Date newtime){
-		
+		Test.PrintLog();
 	}
 	
 	public void Move(Vector<Integer> newpos){
@@ -37,11 +42,13 @@ public class Player {
 	}
 	
 	public static void SetTotalTime(Date newTotalTime){
-		
+		Test.PrintLog();
 	}
 	
 	
-	public void SetObstaclesCount(int newvalue){
-		
+	public void SetObstaclesCount(int putty, int oil){
+		Test.PrintLog();
+		robot.SetOilCount(oil);
+		robot.SetPuttyCount(putty);
 	}
 }
