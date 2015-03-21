@@ -39,6 +39,7 @@ public final class Test {
 			default :
 				System.out.println("Véletlenül rossz számot ütöttél be. Kérlek olvasd el újra a "
 						+ "lehetõségeket és próbálkozz újra!");
+				break;
 			}
 		}
 		
