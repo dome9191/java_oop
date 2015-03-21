@@ -11,7 +11,7 @@ public final class Test {
 		Scanner in = new Scanner(System.in); 
 		Game testGame = new Game();
 		
-		while(selector != 6)
+		while(true)
 		{
 			System.out.println("Java_OOP csapat Robot Game test\n");
 			System.out.println("Válassza ki a futtatandó tesztet:\n\n");
@@ -36,6 +36,9 @@ public final class Test {
 				break;
 			case 5:
 				break;
+			default :
+				System.out.println("Véletlenül rossz számot ütöttél be. Kérlek olvasd el újra a "
+						+ "lehetõségeket és próbálkozz újra!");
 			}
 		}
 		
