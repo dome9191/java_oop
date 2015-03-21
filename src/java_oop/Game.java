@@ -9,7 +9,10 @@ public class Game {
 	private RaceTrack raceTrack;
 	
 	public void Start(){
-		
+		/*String name = new Object(){}.getClass().getEnclosingMethod().getName();
+		String name2 = new Object(){}.getClass().getName();
+		System.out.println(name2+" "+name);*/
+		Test.PrintLog(1);
 	}
 	
 	public void AddPlayer(){
