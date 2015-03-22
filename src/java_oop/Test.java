@@ -7,10 +7,11 @@ import java.util.Scanner;
 public final class Test {
 
 	private static int muted = 0;
+	private static int selector = 0;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int selector = 0;
+		
 		Scanner in = new Scanner(System.in);  
 		
 		while(true)
@@ -43,6 +44,7 @@ public final class Test {
 				Mute();
 				Player testPlayer = new Player();
 				Unmute();
+				ChangeIsOnTrack();
 				testPlayer.Turn();
 				try {
 					System.in.read();
@@ -52,6 +54,13 @@ public final class Test {
 				}
 				break;
 			case 3:
+				Game testGame2 = new Game();
+				testGame2.Start();
+				Mute();
+				Player testPlayer2 = new Player();
+				Unmute();
+				ChangeIsOnTrack();
+				testPlayer2.Turn();
 				try {
 					System.in.read();
 				} catch (IOException e) {
@@ -120,5 +129,12 @@ public final class Test {
 	
 	public static void Unmute(){
 		muted = 0;
+	}
+	
+	public static boolean ChangeIsOnTrack(){
+		if(selector == 3){
+			return false;
+		}
+		else return true;
 	}
 }

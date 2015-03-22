@@ -33,10 +33,18 @@ public class Robot extends GameObject {
 	}
 	
 	public boolean GetIsOnTrack(){
-		Test.PrintLog("A robot a pályán van.");
-		//testcode
-		isOnTrack = true;
-		return isOnTrack;
+		if(Test.ChangeIsOnTrack()){
+			Test.PrintLog("A robot a pályán van.");
+			//testcode
+			isOnTrack = true;
+			return isOnTrack;
+		}
+		else{
+			Test.PrintLog("A robot lelépett a pályáról.");
+			isOnTrack = false;
+			return isOnTrack;
+		}
+	
 	}
 	
 	public void Collision(){

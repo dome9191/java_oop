@@ -39,16 +39,19 @@ public class Player {
 	
 	public void Turn(){
 		Test.PrintLog();
-		robot.GetIsOnTrack();
-		robot.Collision();
-		//testcode
-		CreateOil();
-		//testcode
-		Oil testOil = new Oil();
-		//testcode
-		testOil.Init(robot.GetPosition());
-		//testcode
-		robot.Jump();
+		boolean testcase =  robot.GetIsOnTrack();
+		
+		if(testcase){
+			robot.Collision();
+			//testcode
+			CreateOil();
+			//testcode
+			Oil testOil = new Oil();
+			//testcode
+			testOil.Init(robot.GetPosition());
+			//testcode
+			robot.Jump();
+		}
 		
 	}
 	
