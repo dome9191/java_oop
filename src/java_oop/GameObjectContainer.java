@@ -15,7 +15,13 @@ public final class GameObjectContainer {
 	}
 	
 	public static List<Obstacle> GetObstacles(){
-		Test.PrintLog();
+		if(Test.selector == 2){
+			Test.PrintLog();
+		}
+		if(Test.selector == 4){
+			Test.PrintLog("Ütközés történt.");
+			obstacles.get(0).Affect(robots.get(0));
+		}
 		return obstacles;
 	}
 	
@@ -44,7 +50,7 @@ public final class GameObjectContainer {
 	}
 	
 	public static List<Robot> GetRobots(){
-		
+		Test.PrintLog();
 		return robots;
 		
 	}

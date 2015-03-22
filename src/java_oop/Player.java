@@ -38,22 +38,41 @@ public class Player {
 	}
 	
 	public void Turn(){
-		Test.PrintLog();
-		robot.GetIsOnTrack();
-		robot.Collision();
-		//testcode
-		CreateOil();
-		//testcode
-		Oil testOil = new Oil();
-		//testcode
-		testOil.Init(robot.GetPosition());
-		//testcode
-		robot.Jump();
+		if(Test.selector == 2){
+			Test.PrintLog();
+			robot.GetIsOnTrack();
+			robot.Collision();
+			//testcode
+			CreateOil();
+			//testcode
+			Oil testOil = new Oil();
+			//testcode
+			testOil.Init(robot.GetPosition());
+			//testcode
+			robot.Jump();
+		}
+		if(Test.selector == 3){
+			Test.PrintLog();
+			robot.GetIsOnTrack();
+		}
+		if(Test.selector == 4){
+			Test.PrintLog();
+			robot.GetIsOnTrack();
+			robot.Collision();
+			//testcode
+			CreateOil();
+			//testcode
+			Oil testOil = new Oil();
+			//testcode
+			testOil.Init(robot.GetPosition());
+		}
+		
 		
 	}
 	
 	public static void SetTotalTime(Date newTotalTime){
 		Test.PrintLog();
+		TotalTime = newTotalTime;
 	}
 	
 	
@@ -61,5 +80,10 @@ public class Player {
 		Test.PrintLog();
 		robot.SetOilCount(oil);
 		robot.SetPuttyCount(putty);
+	}
+	
+	public static Date GetTotalTime(){
+		Test.PrintLog();
+		return TotalTime;
 	}
 }

@@ -25,7 +25,7 @@ public class Robot extends GameObject {
 	}
 	
 	public void Modify(Vector<Integer> modvalue){
-		
+		Test.PrintLog();
 	}
 	
 	public void CalculateIsOnTrack(){
@@ -33,15 +33,38 @@ public class Robot extends GameObject {
 	}
 	
 	public boolean GetIsOnTrack(){
-		Test.PrintLog("A robot a pályán van.");
-		//testcode
-		isOnTrack = true;
+		if(Test.selector == 2){
+			Test.PrintLog("A robot a pályán van.");
+			//testcode
+			isOnTrack = true;
+		}
+		if(Test.selector == 3){
+			Test.PrintLog("A robot nincs a pályán, vége a körnek");
+			//testcode
+			isOnTrack = false;
+		}
+		if(Test.selector == 4){
+			Test.PrintLog("A robot a pályán van.");
+			//testcode
+			isOnTrack = true;
+		}
+		if(Test.selector == 5){
+			Test.PrintLog("A robot nincs a pályán.");
+			//testcode
+			isOnTrack = false;
+		}
 		return isOnTrack;
 	}
 	
 	public void Collision(){
-		Test.PrintLog();
-		GameObjectContainer.GetObstacles();
+		if(Test.selector == 2){
+			Test.PrintLog("Nem történt ütközés.");
+			GameObjectContainer.GetObstacles();
+		}
+		if(Test.selector == 4){
+			Test.PrintLog();
+			GameObjectContainer.GetObstacles();
+		}
 	}
 	
 	public void Affect(Robot robot){

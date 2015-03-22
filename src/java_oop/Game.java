@@ -18,6 +18,17 @@ public class Game {
 		String name2 = new Object(){}.getClass().getName();
 		System.out.println(name2+" "+name);*/
 		Test.PrintLog();
+		boolean endgame = false;
+		while(!endgame){
+			endgame = true;
+			for(Robot item: GameObjectContainer.GetRobots()){
+				if(item.GetIsOnTrack()) endgame = false;
+			}
+			for(Player item: Players){
+				if(item.GetTotalTime().compareTo(new Date(0,0,0,0,0)) > 0) item.Turn();
+			}
+		}
+		System.out.println("Játék vége: Játékos1 nyert");
 	}
 	
 	public void AddPlayer(){
