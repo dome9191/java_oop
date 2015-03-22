@@ -22,6 +22,9 @@ public final class GameObjectContainer {
 			Test.PrintLog("Ütközés történt.");
 			obstacles.get(0).Affect(robots.get(0));
 		}
+		if(Test.selector == 41){
+			Test.PrintLog();
+		}
 		return obstacles;
 	}
 	
@@ -32,7 +35,7 @@ public final class GameObjectContainer {
 	}
 	
 	public static void RemoveObstacle(Obstacle removeThis){
-		
+		Test.PrintLog();
 		obstacles.remove(removeThis);
 		
 	}

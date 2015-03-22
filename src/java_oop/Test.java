@@ -85,6 +85,7 @@ public final class Test {
 				testGame2.AddPlayer();
 				testGame2.AddPlayer();
 				testGame2.SetEnvironment(new Date(0,0,0,0,0,0), new Date(0,0,0,0,0,10));
+				GameObjectContainer.AddObstacle(new Oil());
 				Unmute();
 				testGame2.Start();
 				try {
