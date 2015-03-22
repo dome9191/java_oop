@@ -42,8 +42,9 @@ public class Game {
 		RaceTrack track = new RaceTrack();
 		track.Load();
 		track.Draw();
+		
+		Player.SetTotalTime(TotalTime);
 		for(Player item:Players){
-			item.SetTotalTime(TotalTime);
 			item.SetTurnTime(TurnTime);
 		}
 	}
