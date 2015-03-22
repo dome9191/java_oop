@@ -18,17 +18,21 @@ public class Game {
 		String name2 = new Object(){}.getClass().getName();
 		System.out.println(name2+" "+name);*/
 		Test.PrintLog();
-		if(Test.selector != 3){
+		if(Test.selector != 3 && Test.selector != 6){
 			boolean endgame = false;
 			while(!endgame){
 				endgame = true;
 				for(Robot item: GameObjectContainer.GetRobots()){
 					if(item.GetIsOnTrack()) endgame = false;
 				}
-				Date time = Player.GetTotalTime();
-				for(Player item: Players){
-					if(time.compareTo(new Date(0,0,0,0,0)) > 0) item.Turn();
-				}
+				
+			}
+			System.out.println("Játék vége: Játékos1 nyert");
+		}
+		else if(Test.selector == 6){
+			Date time = Player.GetTotalTime();
+			for(Player item: Players){
+				if(time.compareTo(new Date(0,0,0,0,0)) > 0) item.Turn();
 			}
 			System.out.println("Játék vége: Játékos1 nyert");
 		}

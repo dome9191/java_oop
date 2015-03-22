@@ -84,6 +84,9 @@ public class Player {
 	
 	public static Date GetTotalTime(){
 		Test.PrintLog();
+		if(Test.selector == 6){
+			System.out.println("Lejárt az idõ, már nem léphet senki, vége a játéknak!");
+		}
 		return TotalTime;
 	}
 }

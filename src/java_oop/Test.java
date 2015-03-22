@@ -22,7 +22,8 @@ public final class Test {
 			System.out.println("[2] Akadály elhelyezése és ugrás\n");
 			System.out.println("[3] Egy robot lelép a pályáról\n");
 			System.out.println("[4] Akadályra lépés és új akadály elhelyezése\n");
-			System.out.println("[5] Játék vége\n");
+			System.out.println("[5] Játék vége, mert nincs több robot a pályán\n");
+			System.out.println("[6] Játék vége, mert lejárt az idõ\n");
 			
 			selector = in.nextInt();
 			switch(selector)
@@ -96,6 +97,22 @@ public final class Test {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				break;
+			case 6:
+				Mute();
+				Game testGame4 = new Game();
+				testGame4.AddPlayer();
+				testGame4.SetEnvironment(new Date(0,0,0,0,0,0), new Date(0,0,0,0,0,10));
+				Unmute();
+				testGame4.Start();
+				
+				try {
+					System.in.read();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				break;
 			default :
 				System.out.println("Véletlenül rossz számot ütöttél be. Kérlek olvasd el újra a "
