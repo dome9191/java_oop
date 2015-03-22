@@ -58,8 +58,9 @@ public class Robot extends GameObject {
 	
 	public void Collision(){
 		if(Test.selector == 2){
-			Test.PrintLog("Nem történt ütközés.");
+			Test.PrintLog();
 			GameObjectContainer.GetObstacles();
+			System.out.println("Nem történt ütközés.");
 		}
 		if(Test.selector == 4){
 			Test.PrintLog();

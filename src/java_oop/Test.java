@@ -33,24 +33,16 @@ public final class Test {
 				testGame.AddPlayer();
 				testGame.AddPlayer();
 				testGame.SetEnvironment(new Date(0,0,0,0,2,0), new Date(0,0,0,0,0,10));
-				try {
-					System.in.read();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
+				AfterTest();
 				break;
 			case 2:
 				Mute();
 				Player testPlayer = new Player();
 				Unmute();
 				testPlayer.Turn();
-				try {
-					System.in.read();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			
+				AfterTest();
 				break;
 			case 3:
 				Mute();
@@ -59,13 +51,9 @@ public final class Test {
 				Unmute();
 				Game testGame3 = new Game();
 				testGame3.Start();
-				testPlayer2.Turn();
-				try {
-					System.in.read();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				//testPlayer2.Turn();
+				
+				AfterTest();
 				break;
 			case 4:
 				Mute();
@@ -73,31 +61,20 @@ public final class Test {
 				GameObjectContainer.AddObstacle(new Putty());
 				Unmute();
 				testPlayer3.Turn();
-				try {
-					System.in.read();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
+				AfterTest();
 				break;
 			case 5:
 				Mute();
 				Game testGame2 = new Game();
 				testGame2.AddPlayer();
 				testGame2.AddPlayer();
-				testGame2.AddPlayer();
-				testGame2.AddPlayer();
 				testGame2.SetEnvironment(new Date(0,0,0,0,0,0), new Date(0,0,0,0,0,10));
 				GameObjectContainer.AddObstacle(new Oil());
 				Unmute();
 				testGame2.Start();
-				try {
-					System.in.read();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				break;
+				
+				AfterTest();
 			case 6:
 				Mute();
 				Game testGame4 = new Game();
@@ -106,14 +83,7 @@ public final class Test {
 				Unmute();
 				testGame4.Start();
 				
-				try {
-					System.in.read();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				break;
+				AfterTest();
 			default :
 				System.out.println("Véletlenül rossz számot ütöttél be. Kérlek olvasd el újra a "
 						+ "lehetõségeket és próbálkozz újra!");
@@ -159,5 +129,14 @@ public final class Test {
 	
 	public static void Unmute(){
 		muted = 0;
+	}
+	public static void AfterTest(){
+		try {
+			System.out.println("\nNyomj Entert a következõ választáshoz!");
+			System.in.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

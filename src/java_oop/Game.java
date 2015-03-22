@@ -25,7 +25,7 @@ public class Game {
 				for(Robot item: GameObjectContainer.GetRobots()){
 					if(item.GetIsOnTrack()) endgame = false;
 				}
-				
+				System.out.println("Nincs több robot a pályán.");
 			}
 			System.out.println("Játék vége: Játékos1 nyert");
 		}
@@ -37,6 +37,13 @@ public class Game {
 			System.out.println("Játék vége: Játékos1 nyert");
 		}
 		
+		else if(Test.selector == 3){
+			Test.Mute();
+			Player tesztPlayer = new Player();
+			Test.Unmute();
+			tesztPlayer.Turn();
+		}
+
 	}
 	
 	public void AddPlayer(){
