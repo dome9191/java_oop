@@ -25,8 +25,9 @@ public class Game {
 				for(Robot item: GameObjectContainer.GetRobots()){
 					if(item.GetIsOnTrack()) endgame = false;
 				}
+				Date time = Player.GetTotalTime();
 				for(Player item: Players){
-					if(item.GetTotalTime().compareTo(new Date(0,0,0,0,0)) > 0) item.Turn();
+					if(time.compareTo(new Date(0,0,0,0,0)) > 0) item.Turn();
 				}
 			}
 			System.out.println("Játék vége: Játékos1 nyert");
