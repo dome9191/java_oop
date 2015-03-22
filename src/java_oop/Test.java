@@ -56,6 +56,8 @@ public final class Test {
 				Player testPlayer2 = new Player();
 				GameObjectContainer.AddObstacle(new Putty());
 				Unmute();
+				Game testGame3 = new Game();
+				testGame3.Start();
 				testPlayer2.Turn();
 				try {
 					System.in.read();
