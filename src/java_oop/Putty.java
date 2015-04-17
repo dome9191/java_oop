@@ -9,7 +9,7 @@ public class Putty extends Obstacle {
 		GameObjectContainer.AddObstacle(this);
 	}
 	
-	//init és count megvalósítva az Obstacle-ben
+	//init és getcount megvalósítva az Obstacle-ben
 	
 	//felére csökkenti a robot sebességét
 	public void Affect(Robot affected){

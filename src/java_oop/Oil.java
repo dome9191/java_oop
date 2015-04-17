@@ -8,7 +8,7 @@ public class Oil extends Obstacle {
 		GameObjectContainer.AddObstacle(this);
 	}
 	
-	//init és count megvalósítva az Obstacle-ben
+	//init és getcount megvalósítva az Obstacle-ben
 	
 	public void Collision(Vector<Integer> obstaclePos){
 		/*if(Test.selector == 4){
