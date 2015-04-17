@@ -32,12 +32,14 @@ public class Player {
 	
 	public void CreateOil(){
 		//Test.PrintLog("A játékos úgy döntött lerak egy olajfoltot.");
-	
+		Oil newoil = new Oil();
+		newoil.Init(robot.GetPosition());
 	}
 	
 	public void CreatePutty(){
 		//Test.PrintLog();
-	
+		Putty newputty = new Putty();
+		newputty.Init(robot.GetPosition());
 	}
 	
 	public void Turn(){

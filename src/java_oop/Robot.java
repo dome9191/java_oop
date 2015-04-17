@@ -89,4 +89,12 @@ public class Robot extends GameObject {
 	public int GetPuttyCount(){
 		return putty;
 	}
+
+	public Vector<Integer> GetSpeed() {
+		return speed;
+	}
+
+	public void SetSpeed(Vector<Integer> speed) {
+		this.speed = speed;
+	}
 }

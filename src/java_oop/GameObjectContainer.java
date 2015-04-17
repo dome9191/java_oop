@@ -32,19 +32,15 @@ public final class GameObjectContainer {
 	public static void AddObstacle(Obstacle addThis){
 		//Test.PrintLog();
 		obstacles.add(addThis);
-		
 	}
 	
 	public static void RemoveObstacle(Obstacle removeThis){
 		//Test.PrintLog();
 		obstacles.remove(removeThis);
-		
 	}
 	
 	public static RaceTrack GetRaceTrack(){
-		
 		return track;
-		
 	}
 	
 	public static void AddRobot(Robot addThis){
@@ -56,7 +52,6 @@ public final class GameObjectContainer {
 	public static List<Robot> GetRobots(){
 		//Test.PrintLog();
 		return robots;
-		
 	}
 	
 	public static void AddRaceTrack(RaceTrack raceTrack){
