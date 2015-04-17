@@ -9,15 +9,15 @@ public class RaceTrack extends GameObject {
 	List<Vector<Integer> > Points;
 	
 	public RaceTrack(){
-		Test.PrintLog();
+		//Test.PrintLog();
 		GameObjectContainer.AddRaceTrack(this);
 	}
 	
 	public void Load(){
-		Test.PrintLog();
+		//Test.PrintLog();
 	}
 	
 	public void Draw(){
-		Test.PrintLog();
+		//Test.PrintLog();
 	}
 }

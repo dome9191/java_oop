@@ -5,9 +5,10 @@ import java.util.List;
 
 public final class GameObjectContainer {
 
-	private static final ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
+	private static ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
 	private static ArrayList<Robot> robots = new ArrayList<Robot>();
 	private static RaceTrack track;
+	private static ArrayList<SweeperRobot> sweeperrobots = new ArrayList<SweeperRobot>();
 	
 	private GameObjectContainer()
 	{
@@ -15,7 +16,7 @@ public final class GameObjectContainer {
 	}
 	
 	public static List<Obstacle> GetObstacles(){
-		if(Test.selector == 2){
+	/*	if(Test.selector == 2){
 			Test.PrintLog();
 		}
 		if(Test.selector == 4){
@@ -24,18 +25,18 @@ public final class GameObjectContainer {
 		}
 		if(Test.selector == 41){
 			Test.PrintLog();
-		}
+		} */
 		return obstacles;
 	}
 	
 	public static void AddObstacle(Obstacle addThis){
-		Test.PrintLog();
+		//Test.PrintLog();
 		obstacles.add(addThis);
 		
 	}
 	
 	public static void RemoveObstacle(Obstacle removeThis){
-		Test.PrintLog();
+		//Test.PrintLog();
 		obstacles.remove(removeThis);
 		
 	}
@@ -47,18 +48,31 @@ public final class GameObjectContainer {
 	}
 	
 	public static void AddRobot(Robot addThis){
-		Test.PrintLog();
+		//Test.PrintLog();
 		robots.add(addThis);
 		
 	}
 	
 	public static List<Robot> GetRobots(){
-		Test.PrintLog();
+		//Test.PrintLog();
 		return robots;
 		
 	}
 	
 	public static void AddRaceTrack(RaceTrack raceTrack){
-		Test.PrintLog();
+		//Test.PrintLog();
+		track = raceTrack;
+	}
+	
+	public static void AddSweeperRobot(SweeperRobot newsweeper){
+		sweeperrobots.add(newsweeper);
+	}
+	
+	public static void RemoveSweeperRobot(SweeperRobot sRobot){
+		sweeperrobots.remove(sRobot);
+	}
+	
+	public static List<SweeperRobot> GetSweeperRobot(){
+		return sweeperrobots;
 	}
 }

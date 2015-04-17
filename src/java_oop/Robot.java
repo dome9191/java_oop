@@ -10,22 +10,22 @@ public class Robot extends GameObject {
 	private boolean isOnTrack;
 	
 	public Robot(){
-		Test.PrintLog();
+		//Test.PrintLog();
 		GameObjectContainer.AddRobot(this);
 	}
 	
 	public Vector<Integer> GetPosition(){
-		Test.PrintLog();
+		//Test.PrintLog();
 		return position;
 	}
 	
 	public void Jump(){
 		//nem vagyok robot
-		Test.PrintLog("A játékos úgy dönt ugrik.");
+		//Test.PrintLog("A játékos úgy dönt ugrik.");
 	}
 	
 	public void Modify(Vector<Integer> modvalue){
-		Test.PrintLog();
+		//Test.PrintLog();
 	}
 	
 	public void CalculateIsOnTrack(){
@@ -33,7 +33,7 @@ public class Robot extends GameObject {
 	}
 	
 	public boolean GetIsOnTrack(){
-		if(Test.selector == 2){
+		/*if(Test.selector == 2){
 			Test.PrintLog("A robot a pályán van.");
 			//testcode
 			isOnTrack = true;
@@ -52,12 +52,12 @@ public class Robot extends GameObject {
 			Test.PrintLog("A robot nincs a pályán.");
 			//testcode
 			isOnTrack = false;
-		}
+		} */
 		return isOnTrack;
 	}
 	
 	public void Collision(){
-		if(Test.selector == 2){
+		/*if(Test.selector == 2){
 			Test.PrintLog();
 			GameObjectContainer.GetObstacles();
 			System.out.println("Nem történt ütközés.");
@@ -65,7 +65,7 @@ public class Robot extends GameObject {
 		if(Test.selector == 4){
 			Test.PrintLog();
 			GameObjectContainer.GetObstacles();
-		}
+		} */
 	}
 	
 	public void Affect(Robot robot){
@@ -73,11 +73,13 @@ public class Robot extends GameObject {
 	}
 	
 	public void SetOilCount(int newvalue){
-		Test.PrintLog();
+		//Test.PrintLog();
+		oil = newvalue;
 	}
 	
 	public void SetPuttyCount(int newvalue){
-		Test.PrintLog();
+		//Test.PrintLog();
+		putty = newvalue;
 	}
 	
 	public int GetOilCount(){
