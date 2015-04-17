@@ -15,7 +15,7 @@ public final class GameObjectContainer {
 		//statikus osztály
 	}
 	
-	public static List<Obstacle> GetObstacles(){
+	public static ArrayList<Obstacle> GetObstacles(){
 	/*	if(Test.selector == 2){
 			Test.PrintLog();
 		}
@@ -49,7 +49,7 @@ public final class GameObjectContainer {
 		
 	}
 	
-	public static List<Robot> GetRobots(){
+	public static ArrayList<Robot> GetRobots(){
 		//Test.PrintLog();
 		return robots;
 	}
@@ -67,7 +67,11 @@ public final class GameObjectContainer {
 		sweeperrobots.remove(sRobot);
 	}
 	
-	public static List<SweeperRobot> GetSweeperRobot(){
+	public static ArrayList<SweeperRobot> GetSweeperRobot(){
 		return sweeperrobots;
+	}
+	
+	public static void RemoveRobot(Robot removethis){
+		robots.remove(removethis);
 	}
 }

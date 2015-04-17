@@ -1,11 +1,11 @@
 package java_oop;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RaceTrack extends GameObject {
 	
-	//nyilván ArrayList lesz majd 
-	List<Vektor> Points;
+	private ArrayList<Vektor> Points;
 	
 	public RaceTrack(){
 		//Test.PrintLog();
@@ -18,5 +18,9 @@ public class RaceTrack extends GameObject {
 	
 	public void Draw(){
 		//Test.PrintLog();
+	}
+	
+	public ArrayList<Vektor> GetPoints(){
+		return Points;
 	}
 }

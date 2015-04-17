@@ -21,6 +21,7 @@ public class Oil extends Obstacle {
 		
 	}
 	
+	//olajról elugrás esetében nem lehet sebességet változtatni
 	public void Affect(Robot affected){
 		
 	}

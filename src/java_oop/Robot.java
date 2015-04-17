@@ -1,5 +1,8 @@
 package java_oop;
 
+import java.util.ArrayList;
+
+
 
 public class Robot extends GameObject {
 	
@@ -19,16 +22,24 @@ public class Robot extends GameObject {
 		return position;
 	}
 	
-	public void Jump(){
+	//adtam neki egy paramétert, hogy tudjuk, hogy hova klikkelt a user
+	public void Jump(Vektor clickedvalue){
 		//nem vagyok robot
 		//Test.PrintLog("A játékos úgy dönt ugrik.");
+	
 	}
 	
+	//az ütközött objektumok visszajelzése alapján átállítja a sebességet
 	public void Modify(Vektor modvalue){
 		//Test.PrintLog();
+		speed = modvalue;
 	}
 	
 	public void CalculateIsOnTrack(){
+		
+		ArrayList<Vektor> trackpoints = GameObjectContainer.GetRaceTrack().GetPoints();
+		
+		//itt még kell valami magic
 		
 	}
 	
@@ -56,6 +67,10 @@ public class Robot extends GameObject {
 		return isOnTrack;
 	}
 	
+	public void SetIsOnTrack(boolean newvalue){
+		isOnTrack = newvalue;
+	}
+	
 	public void Collision(){
 		/*if(Test.selector == 2){
 			Test.PrintLog();
@@ -68,9 +83,51 @@ public class Robot extends GameObject {
 		} */
 		
 		
+		ArrayList<Robot> robotlist = GameObjectContainer.GetRobots();
+		for(Robot iter : robotlist){
+			if(iter.position.Equals(this.position)){
+				iter.Affect(this);
+			}
+		}
+		
+		//ha még életben van, nézzük meg másra is az ütközéseket
+		if(isOnTrack){
+			//elõször az akadályokat ellenõrizzük, hogy kisrobot ütközés esetén az újonnan lerakott akadály ne legyen hatással a robotra
+			ArrayList<Obstacle> obstaclelist = GameObjectContainer.GetObstacles();
+			for(Obstacle iter: obstaclelist){
+				if(iter.position.Equals(this.position)){
+					iter.Affect(this);
+				}
+			}
+			
+			ArrayList<SweeperRobot> sweeperlist = GameObjectContainer.GetSweeperRobot();
+			for(SweeperRobot iter : sweeperlist){
+				if(iter.position.Equals(this.position)){
+					iter.Affect(this);
+				}
+			}	
+		}
+		
+		
 	}
 	
+	//vektorátlag számolása és pályáról levétel (ha ez a lassabb)
 	public void Affect(Robot robot){
+		Vektor newspeed = new Vektor();
+		//ez lesz az új sebesség
+		newspeed = this.speed.Add(robot.GetSpeed());
+		
+		//melyik robot sebessége volt nagyobb?
+		if(this.speed.isGreaterThan(robot.GetSpeed())){
+			this.Modify(newspeed);
+			
+			//és a robot törlése  --- majd újra kell rajzoltatni ilyenkor a dolgokat
+			GameObjectContainer.RemoveRobot(robot);
+		}
+		else{
+			robot.Modify(newspeed);
+			GameObjectContainer.RemoveRobot(this);
+		}
 		
 	}
 	
@@ -96,7 +153,4 @@ public class Robot extends GameObject {
 		return speed;
 	}
 
-	public void SetSpeed(Vektor speed) {
-		this.speed = speed;
-	}
 }

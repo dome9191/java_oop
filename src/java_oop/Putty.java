@@ -19,7 +19,7 @@ public class Putty extends Obstacle {
 		newspeed =  newspeed.DivideBy(2);
 		
 		//beállítjuk a robotnak
-		affected.SetSpeed(newspeed);
+		affected.Modify(newspeed);
 	}
 	
 	public void Update(){

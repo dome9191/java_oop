@@ -48,4 +48,23 @@ public class Vektor implements Serializable {
 		
 		return divided;
 	}
+	
+	public boolean Equals(Vektor pos){
+		if(this.x == pos.x && this.y == pos.y){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isGreaterThan(Vektor pos){
+		//csak a sebesség nagysága alapján hasonlítunk
+		double magnitude = Math.sqrt(this.x * this.x + this.y * this.y);
+		double othermagnitude = Math.sqrt(pos.x * pos.x + pos.y * pos.y);
+		
+		if(magnitude > othermagnitude){
+			return true;
+		}
+		else 
+			return false;
+	}
 }
