@@ -39,4 +39,13 @@ public class Vektor implements Serializable {
 		
 		return added;
 	}
+	
+	public Vektor DivideBy(int number){
+		Vektor divided = new Vektor();
+		
+		divided.x =(int)( this.x /number);
+		divided.y = (int) (this.y / number);
+		
+		return divided;
+	}
 }

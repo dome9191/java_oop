@@ -8,6 +8,7 @@ public class Robot extends GameObject {
 	private int putty;
 	private boolean isOnTrack;
 	
+	
 	public Robot(){
 		//Test.PrintLog();
 		GameObjectContainer.AddRobot(this);
@@ -65,6 +66,8 @@ public class Robot extends GameObject {
 			Test.PrintLog();
 			GameObjectContainer.GetObstacles();
 		} */
+		
+		
 	}
 	
 	public void Affect(Robot robot){

@@ -3,6 +3,7 @@ package java_oop;
 import java.util.Vector;
 
 public class Oil extends Obstacle {
+	
 	public Oil(){
 		//Test.PrintLog();
 		GameObjectContainer.AddObstacle(this);
@@ -17,6 +18,10 @@ public class Oil extends Obstacle {
 			Test.selector = 41;
 			GameObjectContainer.RemoveObstacle(GameObjectContainer.GetObstacles().get(0));
 		} */
+		
+	}
+	
+	public void Affect(Robot affected){
 		
 	}
 	

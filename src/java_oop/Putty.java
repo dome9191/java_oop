@@ -13,7 +13,13 @@ public class Putty extends Obstacle {
 	public void Affect(Robot affected){
 		//Test.PrintLog();
 		//affected.Modify(new Vector<Integer>());
+		Vektor newspeed = affected.GetSpeed();
 		
+		//felezzük a sebességet
+		newspeed =  newspeed.DivideBy(2);
+		
+		//beállítjuk a robotnak
+		affected.SetSpeed(newspeed);
 	}
 	
 	public void Update(){
