@@ -20,7 +20,7 @@ public class Player {
 		TurnTime = newtime;
 	}
 	
-	public void Move(Vector<Integer> newpos){
+	public void Move(Vektor newpos){
 		
 	}
 	

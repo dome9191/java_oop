@@ -1,12 +1,10 @@
 package java_oop;
 
-import java.util.Vector;
-
 public abstract class Obstacle extends GameObject {
 	
 	private int count;
 	
-	public void Init(Vector<Integer> obstaclePos){
+	public void Init(Vektor obstaclePos){
 		//Test.PrintLog();
 		this.position = obstaclePos;
 	}

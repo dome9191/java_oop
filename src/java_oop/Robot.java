@@ -1,10 +1,9 @@
 package java_oop;
 
-import java.util.Vector;
 
 public class Robot extends GameObject {
 	
-	private Vector<Integer> speed;
+	private Vektor speed;
 	private int oil;
 	private int putty;
 	private boolean isOnTrack;
@@ -14,7 +13,7 @@ public class Robot extends GameObject {
 		GameObjectContainer.AddRobot(this);
 	}
 	
-	public Vector<Integer> GetPosition(){
+	public Vektor GetPosition(){
 		//Test.PrintLog();
 		return position;
 	}
@@ -24,7 +23,7 @@ public class Robot extends GameObject {
 		//Test.PrintLog("A játékos úgy dönt ugrik.");
 	}
 	
-	public void Modify(Vector<Integer> modvalue){
+	public void Modify(Vektor modvalue){
 		//Test.PrintLog();
 	}
 	
@@ -90,11 +89,11 @@ public class Robot extends GameObject {
 		return putty;
 	}
 
-	public Vector<Integer> GetSpeed() {
+	public Vektor GetSpeed() {
 		return speed;
 	}
 
-	public void SetSpeed(Vector<Integer> speed) {
+	public void SetSpeed(Vektor speed) {
 		this.speed = speed;
 	}
 }

@@ -1,7 +1,5 @@
 package java_oop;
 
-import java.util.Vector;
-
 
 public class Putty extends Obstacle {
 	
