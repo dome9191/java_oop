@@ -10,7 +10,7 @@ public class Oil extends Obstacle {
 	
 	//init és getcount megvalósítva az Obstacle-ben
 	
-	public void Collision(Vector<Integer> obstaclePos){
+	public void Collision(){
 		/*if(Test.selector == 4){
 			Test.PrintLog();
 			//ugly hack, kétszer hívjuk ugyanazt egy teszten belül

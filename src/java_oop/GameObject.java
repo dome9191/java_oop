@@ -9,7 +9,7 @@ public abstract class GameObject implements Drawable {
 	protected Color color;
 	
 	
-	public void Collision(Vektor pos){
+	public void Collision(){
 		
 	}
 	
