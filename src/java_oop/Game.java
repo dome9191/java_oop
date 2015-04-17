@@ -17,7 +17,7 @@ public class Game {
 		/*String name = new Object(){}.getClass().getEnclosingMethod().getName();
 		String name2 = new Object(){}.getClass().getName();
 		System.out.println(name2+" "+name);*/
-		Test.PrintLog();
+		/*Test.PrintLog();
 		if(Test.selector != 3 && Test.selector != 6){
 			boolean endgame = false;
 			while(!endgame){
@@ -42,18 +42,18 @@ public class Game {
 			Player tesztPlayer = new Player();
 			Test.Unmute();
 			tesztPlayer.Turn();
-		}
+		} */
 
 	}
 	
 	public void AddPlayer(){
-		Test.PrintLog();
+		//Test.PrintLog();
 		Players.add(new Player());
 		Players.get(Players.size()-1).SetObstaclesCount(5,5);
 	}
 	
 	public void SetEnvironment(Date TotalTime, Date TurnTime){
-		Test.PrintLog();
+		//Test.PrintLog();
 		RaceTrack track = new RaceTrack();
 		track.Load();
 		track.Draw();
@@ -65,8 +65,6 @@ public class Game {
 	}
 	
 	public void RemovePlayer(Player removethis){
-		
 		Players.remove(removethis);
-		
 	}
 }
