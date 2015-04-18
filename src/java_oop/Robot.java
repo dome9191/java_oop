@@ -61,8 +61,10 @@ public class Robot extends GameObject {
 		Vektor closestpoint = trackpoints.get(0);
 		//megkeressük a legközelebbi pálya középvonal pontot hozzánk
 		for(Vektor i: trackpoints){
-			if(position.Substract(trackpoints.get(0)).Length()<mindistance)
+			if(position.Substract(trackpoints.get(0)).Length()<mindistance){
 				closestpoint = i;
+				mindistance = position.Substract(trackpoints.get(0)).Length();
+			}
 		}
 		//pályán vagyunk
 		if(closestpoint.Substract(position).Length() < width)
