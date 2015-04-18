@@ -10,6 +10,8 @@ public class Robot extends GameObject {
 	private int oil;
 	private int putty;
 	private boolean isOnTrack;
+	//sebesség állításának tiltására
+	private boolean canSetSpeed = true;
 	
 	
 	public Robot(){
@@ -37,12 +39,17 @@ public class Robot extends GameObject {
 		//hozzáadjuk az összesített értéket az eddigi pozícióhoz, ez az új pozíció
 		position = position.Add(newspeed);
 	
+		//ugrás után újra lehet állítani a sebességet
+		this.canSetSpeed = true;
 	}
 	
 	//az ütközött objektumok visszajelzése alapján átállítja a sebességet
 	public void Modify(Vektor modvalue){
 		//Test.PrintLog();
-		speed = modvalue;
+		//ha meg van engedve, hogy állítsuk a sebességet
+		if(this.canSetSpeed){
+			speed = modvalue;
+		}
 	}
 	
 	public void CalculateIsOnTrack(){
@@ -162,6 +169,14 @@ public class Robot extends GameObject {
 
 	public Vektor GetSpeed() {
 		return speed;
+	}
+
+	public boolean getCanSetSpeed() {
+		return canSetSpeed;
+	}
+
+	public void setCanSetSpeed(boolean canSetSpeed) {
+		this.canSetSpeed = canSetSpeed;
 	}
 
 }

@@ -11,6 +11,7 @@ public class Oil extends Obstacle {
 	
 	//init és getcount megvalósítva az Obstacle-ben
 	
+	//nem is kell most
 	public void Collision(){
 		/*if(Test.selector == 4){
 			Test.PrintLog();
@@ -21,12 +22,18 @@ public class Oil extends Obstacle {
 		
 	}
 	
-	//olajról elugrás esetében nem lehet sebességet változtatni
 	public void Affect(Robot affected){
-		
+		//olajról elugrás esetében nem lehet sebességet változtatni
+		affected.setCanSetSpeed(false);
 	}
 	
 	public void Update(){
+		//kör végén növeljük a számlálóját
+		count++;
 		
+		//három kör után felszárad
+		if(this.count == 3){
+			GameObjectContainer.RemoveObstacle(this);
+		}
 	}
 }
