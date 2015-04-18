@@ -49,7 +49,7 @@ public class Game {
 	public void AddPlayer(){
 		//Test.PrintLog();
 		Players.add(new Player());
-		Players.get(Players.size()-1).SetObstaclesCount(5,5);
+		Players.get(Players.size()-1).SetObstaclesCount(3,3);
 	}
 	
 	public void SetEnvironment(Date TotalTime, Date TurnTime){

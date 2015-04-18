@@ -20,6 +20,7 @@ public class Player {
 		TurnTime = newtime;
 	}
 	
+	//ez lehetne az utolsó hívás, és a newpos adódna át a jump-nak
 	public void Move(Vektor newpos){
 		
 	}
