@@ -26,6 +26,16 @@ public class Robot extends GameObject {
 	public void Jump(Vektor clickedvalue){
 		//nem vagyok robot
 		//Test.PrintLog("A játékos úgy dönt ugrik.");
+		
+		//normalizáljuk a bekattintott értéket
+		clickedvalue = clickedvalue.Normalize();
+		Vektor newspeed = new Vektor();
+		
+		//hozzáadjuk a sebességünkhöz
+		newspeed = this.speed.Add(clickedvalue);
+		
+		//hozzáadjuk az összesített értéket az eddigi pozícióhoz, ez az új pozíció
+		position = position.Add(newspeed);
 	
 	}
 	
@@ -116,6 +126,7 @@ public class Robot extends GameObject {
 		Vektor newspeed = new Vektor();
 		//ez lesz az új sebesség
 		newspeed = this.speed.Add(robot.GetSpeed());
+		newspeed = newspeed.DivideBy(2);
 		
 		//melyik robot sebessége volt nagyobb?
 		if(this.speed.isGreaterThan(robot.GetSpeed())){
