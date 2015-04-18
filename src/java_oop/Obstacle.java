@@ -2,7 +2,7 @@ package java_oop;
 
 public abstract class Obstacle extends GameObject {
 	
-	private int count;
+	protected int count = 0;
 	
 	public void Init(Vektor obstaclePos){
 		//Test.PrintLog();

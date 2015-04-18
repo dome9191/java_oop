@@ -20,8 +20,17 @@ public class Putty extends Obstacle {
 		
 		//beállítjuk a robotnak
 		affected.Modify(newspeed);
+		
+		//ráléptek egyszer
+		this.count++;
+		
+		//ha már négyszer ráléptek, akkor törlés
+		if(this.count == 4){
+			GameObjectContainer.RemoveObstacle(this);
+		}
 	}
 	
+	//asszem itt haszontalan, nem csinál semmit
 	public void Update(){
 		
 	}
