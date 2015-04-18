@@ -19,12 +19,15 @@ public class Vektor implements Serializable {
 		this.y = y;
 	}
 	
+	public int Length(){
+		return (int)Math.round(Math.sqrt(this.x * this.x + this.y * this.y));
+	}
 	public Vektor Normalize(){
 		Vektor normalized = new Vektor();
 		
 		double length = Math.sqrt(this.x * this.x + this.y * this.y);
 		
-		//van p·r eset, amikor a math.round jobb
+		//van p√°r eset, amikor a math.round jobb
 		normalized.x = (int) Math.round(this.x / length);
 		normalized.y = (int) Math.round(this.y /length);
 		
@@ -38,6 +41,14 @@ public class Vektor implements Serializable {
 		added.y = this.x + addThis.y;
 		
 		return added;
+	}
+	
+	public Vektor Substract(Vektor substractThis){
+		//az eredetib≈ël vonjuk az √∫jat, sz√≥val az eredm√©nyvektor az eredetibe mutat
+		Vektor substracted = new Vektor();
+		substracted.x = this.x - substractThis.x;
+		substracted.y = this.y - substractThis.y;
+		return substracted;
 	}
 	
 	public Vektor DivideBy(int number){
@@ -57,7 +68,7 @@ public class Vektor implements Serializable {
 	}
 	
 	public boolean isGreaterThan(Vektor pos){
-		//csak a sebessÈg nagys·ga alapj·n hasonlÌtunk
+		//csak a sebess√©g nagys√°ga alapj√°n hasonl√≠tunk
 		double magnitude = Math.sqrt(this.x * this.x + this.y * this.y);
 		double othermagnitude = Math.sqrt(pos.x * pos.x + pos.y * pos.y);
 		

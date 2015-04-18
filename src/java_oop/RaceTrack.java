@@ -6,6 +6,7 @@ import java.util.List;
 public class RaceTrack extends GameObject {
 	
 	private ArrayList<Vektor> Points;
+	private int Width;
 	
 	public RaceTrack(){
 		//Test.PrintLog();
@@ -22,5 +23,9 @@ public class RaceTrack extends GameObject {
 	
 	public ArrayList<Vektor> GetPoints(){
 		return Points;
+	}
+	
+	public int GetWidth(){
+		return Width;
 	}
 }

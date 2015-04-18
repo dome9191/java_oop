@@ -55,8 +55,21 @@ public class Robot extends GameObject {
 	public void CalculateIsOnTrack(){
 		
 		ArrayList<Vektor> trackpoints = GameObjectContainer.GetRaceTrack().GetPoints();
-		
-		//itt még kell valami magic
+		int width = GameObjectContainer.GetRaceTrack().GetWidth();
+		//magic starts here
+		int mindistance = position.Substract(trackpoints.get(0)).Length();
+		Vektor closestpoint = trackpoints.get(0);
+		//megkeressük a legközelebbi pálya középvonal pontot hozzánk
+		for(Vektor i: trackpoints){
+			if(position.Substract(trackpoints.get(0)).Length()<mindistance)
+				closestpoint = i;
+		}
+		//pályán vagyunk
+		if(closestpoint.Substract(position).Length() < width)
+			isOnTrack = true;
+		//nem vagyunk
+		else
+			isOnTrack = false;
 		
 	}
 	
