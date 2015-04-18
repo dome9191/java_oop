@@ -24,9 +24,9 @@ public class Vektor implements Serializable {
 		
 		double length = Math.sqrt(this.x * this.x + this.y * this.y);
 		
-		normalized.x = (int) (this.x / length);
-		normalized.y = (int) (this.y /length);
-		
+		//van pár eset, amikor a math.round jobb
+		normalized.x = (int) Math.round(this.x / length);
+		normalized.y = (int) Math.round(this.y /length);
 		
 		return normalized;
 	}
@@ -43,8 +43,8 @@ public class Vektor implements Serializable {
 	public Vektor DivideBy(int number){
 		Vektor divided = new Vektor();
 		
-		divided.x =(int)( this.x /number);
-		divided.y = (int) (this.y / number);
+		divided.x =(int)Math.round( this.x /number);
+		divided.y = (int)Math.round(this.y / number);
 		
 		return divided;
 	}
