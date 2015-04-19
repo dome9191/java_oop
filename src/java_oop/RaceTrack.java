@@ -19,14 +19,17 @@ public class RaceTrack extends GameObject {
 		//teszt kód
 		//generálunk egy ellipszist....
 		Width = 40;
-		startingpoint = new Vektor(0,200);
+		startingpoint = new Vektor(0,20);
 		Points = new ArrayList<Vektor>();
-		Vektor center = new Vektor(400,300);
+		for(int i = 0; i<800; i++){
+			Points.add(new Vektor(i, 20));
+		}
+		/*Vektor center = new Vektor(400,300);
 		for(int i = 0; i<360; i++ ){
 			Points.add(new Vektor(
 					(int)Math.round(Math.sin(Math.toRadians( i ))*300.0),
 					(int)Math.round(Math.cos(Math.toRadians( i ))*200.0)));
-		}
+		} */
 	}
 	
 	public void Draw(){
