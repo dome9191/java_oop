@@ -23,14 +23,14 @@ public final class Test {
 		/*while(true)
 		{
 			System.out.println("Java_OOP csapat Robot Game test\n");
-			System.out.println("V·lassza ki a futtatandÛ tesztet:\n\n");
+			System.out.println("V√°lassza ki a futtatand√≥ tesztet:\n\n");
 			
-			System.out.println("[1] Inicializ·l·s\n");
-			System.out.println("[2] Akad·ly elhelyezÈse Ès ugr·s\n");
-			System.out.println("[3] Egy robot lelÈp a p·ly·rÛl\n");
-			System.out.println("[4] Akad·lyra lÈpÈs Ès ˙j akad·ly elhelyezÈse\n");
-			System.out.println("[5] J·tÈk vÈge, mert nincs tˆbb robot a p·ly·n\n");
-			System.out.println("[6] J·tÈk vÈge, mert lej·rt az idı\n");
+			System.out.println("[1] Inicializ√°l√°s\n");
+			System.out.println("[2] Akad√°ly elhelyez√©se √©s ugr√°s\n");
+			System.out.println("[3] Egy robot lel√©p a p√°ly√°r√≥l\n");
+			System.out.println("[4] Akad√°lyra l√©p√©s √©s √∫j akad√°ly elhelyez√©se\n");
+			System.out.println("[5] J√°t√©k v√©ge, mert nincs t√∂bb robot a p√°ly√°n\n");
+			System.out.println("[6] J√°t√©k v√©ge, mert lej√°rt az id√µ\n");
 			
 			selector = in.nextInt();
 			switch(selector)
@@ -92,8 +92,8 @@ public final class Test {
 				
 				AfterTest();
 			default :
-				System.out.println("VÈletlen¸l rossz sz·mot ¸tˆttÈl be. KÈrlek olvasd el ˙jra a "
-						+ "lehetısÈgeket Ès prÛb·lkozz ˙jra!");
+				System.out.println("V√©letlen√ºl rossz sz√°mot √ºt√∂tt√©l be. K√©rlek olvasd el √∫jra a "
+						+ "lehet√µs√©geket √©s pr√≥b√°lkozz √∫jra!");
 				try {
 					System.in.read();
 				} catch (IOException e) {
@@ -166,7 +166,66 @@ public final class Test {
 	
 	public static void HandleCommand(String command)
 	{
-		System.out.println("Handling....");
+		//lev√°gjuk az @ jelz≈ët ha esetleg konzolr√≥l j√∂tt a parancs
+		if(command.charAt(0)=='@'){
+			command = command.substring(1);
+		}
+		ArrayList<Integer> opts = new ArrayList<Integer>();
+		if(command.contains("(")){
+			String[] parts = command.split("\\(");
+			command = parts[0];
+			String[] data = parts[1].substring(0, parts[1].length()-1).split(",");
+			for(String item: data){
+				opts.add(Integer.parseInt(item));
+			}
+		}
+		
+		switch(command){
+		case "loadMap":
+			loadMap();
+			break;
+		case "addPlayer":
+			addPlayer(opts.get(0));
+			break;
+		case "placeOil":
+			placeOil(opts.get(0));
+			break;
+		case "placePutty":
+			placePutty(opts.get(0));
+			break;
+		case "moveRobot":
+			moveRobot(opts.get(0), opts.get(1), opts.get(2));
+			break;
+		case "startSweeperRobots":
+			startSweeperRobots(opts.get(0), opts.get(1), opts.get(2), opts.get(3), opts.get(4), opts.get(5));
+			break;
+		case "deleteObstacle":
+			deleteObstacle(opts.get(0), opts.get(1));
+			break;
+		case "listPlayers":
+			listPlayers();
+			break;
+		case "listObstacles":
+			listObstacles();
+			break;
+		case "listSweeperRobots":
+			listSweeperRobots();
+			break;
+		case "setTimes":
+			setTimes(opts.get(0), opts.get(1));
+			break;
+		case "remainingTotalTime":
+			remainingTotalTime();
+			break;
+		case "moveSweeperRobot":
+			moveSweeperRobot(opts.get(0), opts.get(1), opts.get(2));
+			break;
+		case "changeRobotSpeed":
+			changeRobotSpeed(opts.get(0), opts.get(1), opts.get(2));
+			break;
+		default:
+			break;
+		}
 	}
 	
 	public static void PrintLog()
@@ -201,7 +260,7 @@ public final class Test {
 	}
 	public static void AfterTest(){
 		try {
-			System.out.println("\nNyomj Entert a kˆvetkezı v·laszt·shoz!");
+			System.out.println("\nNyomj Entert a k√∂vetkez√µ v√°laszt√°shoz!");
 			System.in.read();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -210,11 +269,11 @@ public final class Test {
 	}
 	
 	public static void loadMap(){
-		//nem ·llÌtunk be idıket, itt csak meghÌvÛdik a p·lya Load-ja
+		//nem √°ll√≠tunk be id√µket, itt csak megh√≠v√≥dik a p√°lya Load-ja
 		testgame2.SetEnvironment(null, null);
 	}
 	
-	//number sz·m˙ j·tÈkost hoz lÈtre
+	//number sz√°m√∫ j√°t√©kost hoz l√©tre
 	public static void addPlayer(int number){
 		for(int i = 0; i < number; i++){
 			testgame2.AddPlayer();
@@ -242,7 +301,7 @@ public final class Test {
 		mozgo.Jump(move);
 	} 
 	
-	//3 kisrobotot tesz a p·ly·ra
+	//3 kisrobotot tesz a p√°ly√°ra
 	public static void startSweeperRobots(int x1, int y1, int x2, int y2, int x3, int y3){
 		Vektor k1 = new Vektor(x1,y1);
 		Vektor k2 = new Vektor(x2,y2);
