@@ -38,12 +38,14 @@ public class Player {
 		//Test.PrintLog("A játékos úgy döntött lerak egy olajfoltot.");
 		Oil newoil = new Oil();
 		newoil.Init(robot.GetPosition());
+		robot.SetOilCount(robot.GetOilCount()-1);
 	}
 	
 	public void CreatePutty(){
 		//Test.PrintLog();
 		Putty newputty = new Putty();
 		newputty.Init(robot.GetPosition());
+		robot.SetPuttyCount(robot.GetPuttyCount()-1);
 	}
 	
 	public void Turn(){

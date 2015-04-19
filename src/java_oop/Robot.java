@@ -48,7 +48,7 @@ public class Robot extends GameObject {
 	public void Modify(Vektor modvalue){
 		//Test.PrintLog();
 		//ha meg van engedve, hogy állítsuk a sebességet
-		if(this.canSetSpeed){
+		if(this.canSetSpeed && this.isOnTrack){
 			speed = modvalue;
 		}
 	}

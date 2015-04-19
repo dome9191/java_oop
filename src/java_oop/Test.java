@@ -16,7 +16,7 @@ public final class Test {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);  
 		testgame2.SetEnvironment(new Date(0,0,0,0,1), new Date(0,0,0,0,1));
-		testgame2.AddPlayer();
+		//testgame2.AddPlayer();
 		testgame2.AddPlayer();
 		testgame2.Start();
 		/*Game testgame = new Game();
@@ -303,10 +303,12 @@ public final class Test {
 	public static void moveRobot(int x, int y, int robotindex){
 		ArrayList<Robot> robotlist = GameObjectContainer.GetRobots();
 		Robot mozgo = robotlist.get(robotindex);
-		
-		Vektor move = new Vektor(x, y);
-		mozgo.Collision();
-		mozgo.Jump(move);
+		if(mozgo.GetIsOnTrack()){
+			Vektor move = new Vektor(x, y);
+			mozgo.CalculateIsOnTrack();
+			mozgo.Collision();
+			mozgo.Jump(move);
+		}
 	} 
 	
 	//3 kisrobotot tesz a pályára
@@ -392,7 +394,7 @@ public final class Test {
 		ArrayList<Robot> robots = GameObjectContainer.GetRobots();
 		Robot robi = robots.get(robotindex);
 		Vektor newspeed = new Vektor(x, y);
-		robi.SetSpeed(newspeed);
+		robi.Modify(newspeed);
 	}
 	
 	public static void Update(int obstacleindex){
