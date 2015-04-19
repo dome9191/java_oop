@@ -12,11 +12,16 @@ public abstract class Obstacle extends GameObject {
 		
 		//legkérjük az akadályokat, megnézzük, hogy van-e már itt valami
 		ArrayList<Obstacle> obstacles = GameObjectContainer.GetObstacles();
+		ArrayList<Obstacle> marked = new ArrayList<Obstacle>();
 		for(Obstacle iter : obstacles){
-			if(iter.position == this.position){
+			if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
 				//ha van, akkor töröljük
-				GameObjectContainer.RemoveObstacle(iter);
+				marked.add(iter);
 			}
+		}
+		//kitöröljük az összes megjelölt objektumot
+		for(Obstacle iter: marked){
+			obstacles.remove(iter);
 		}
 	}
 	
