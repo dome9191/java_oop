@@ -16,6 +16,7 @@ public class Robot extends GameObject {
 	
 	public Robot(){
 		//Test.PrintLog();
+		this.radius = 4;
 		GameObjectContainer.AddRobot(this);
 	}
 	
@@ -118,11 +119,17 @@ public class Robot extends GameObject {
 		
 		
 		ArrayList<Robot> robotlist = GameObjectContainer.GetRobots();
-		for(Robot iter : robotlist){
-			//pont azonos baromi ritkán lesz a pozíciójuk, radiusra kell vizsgálni
-			/*if(iter.position.Equals(this.position)){*/
-			//akkor történjen ütközés ha a két cucc távolsága kisebb mint a kiterjedéseik összege
-			if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
+		if(robotlist.size() > 1){
+			ArrayList<Robot> affected = new ArrayList<Robot>();
+			for(Robot iter : robotlist){
+				//pont azonos baromi ritkán lesz a pozíciójuk, radiusra kell vizsgálni
+				/*if(iter.position.Equals(this.position)){*/
+				//akkor történjen ütközés ha a két cucc távolsága kisebb mint a kiterjedéseik összege
+				if((iter != this) && (iter.position.Substract(this.position).Length() < (iter.radius+this.radius))){
+					affected.add(iter);
+				}
+			}
+			for(Robot iter:affected){
 				iter.Affect(this);
 			}
 		}

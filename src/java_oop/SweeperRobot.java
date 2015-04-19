@@ -56,11 +56,12 @@ public class SweeperRobot extends Obstacle {
 	public void ChangeDirection(){
 		//ilyenkor már lefutott a GetDirection, tehát a speed be van állítva az új irányba, csak hozzá kell adni valami
 		//random számot az egyik koordinátájához és normalizálni
-		Random rn = new Random();
+		/*Random rn = new Random();
 		
 		//20-50 közötti random koorindátával eltoljuk y irányban
-		int number = rn.nextInt((50 - 20) + 1) + 20;
-		Vektor changed = new Vektor(0, number);
+		int number = rn.nextInt((50 - 20) + 1) + 20; 
+		Vektor changed = new Vektor(0, number); */
+		Vektor changed = new Vektor(0, 30);
 		speed = speed.Add(changed).Normalize();
 	}
 	

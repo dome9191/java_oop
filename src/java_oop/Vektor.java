@@ -38,7 +38,7 @@ public class Vektor implements Serializable {
 		Vektor added = new Vektor();
 		
 		added.x = this.x + addThis.x;
-		added.y = this.x + addThis.y;
+		added.y = this.y + addThis.y;
 		
 		return added;
 	}

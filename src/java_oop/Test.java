@@ -10,16 +10,20 @@ public final class Test {
 
 	private static int muted = 0;
 	public static int selector = 0;
-	private static Game testgame2;
+	private static Game testgame2 = new Game();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);  
-		Game testgame = new Game();
+		testgame2.SetEnvironment(new Date(0,0,0,0,1), new Date(0,0,0,0,1));
+		testgame2.AddPlayer();
+		testgame2.AddPlayer();
+		testgame2.Start();
+		/*Game testgame = new Game();
 		testgame.SetEnvironment(new Date(0,0,0,0,1), new Date(0,0,0,0,1));
 		testgame.AddPlayer();
 		testgame.AddPlayer();
-		testgame.Start();
+		testgame.Start(); */
 		/*while(true)
 		{
 			System.out.println("Java_OOP csapat Robot Game test\n");
@@ -223,6 +227,9 @@ public final class Test {
 		case "changeRobotSpeed":
 			changeRobotSpeed(opts.get(0), opts.get(1), opts.get(2));
 			break;
+		case "Update":
+			Update(opts.get(0));
+			break;
 		default:
 			break;
 		}
@@ -270,7 +277,7 @@ public final class Test {
 	
 	public static void loadMap(){
 		//nem állítunk be idõket, itt csak meghívódik a pálya Load-ja
-		testgame2.SetEnvironment(null, null);
+		testgame2.SetEnvironment(new Date(0,0,0,0,0,0), new Date(0,0,0,0,0,0));
 	}
 	
 	//number számú játékost hoz létre
@@ -298,6 +305,7 @@ public final class Test {
 		Robot mozgo = robotlist.get(robotindex);
 		
 		Vektor move = new Vektor(x, y);
+		mozgo.Collision();
 		mozgo.Jump(move);
 	} 
 	
@@ -347,7 +355,7 @@ public final class Test {
 		ArrayList<Obstacle> obstacles = GameObjectContainer.GetObstacles();
 		int i = 0;
 		for(Obstacle iter:obstacles){
-			System.out.println(i+ " "+ iter.getClass().getSimpleName() + iter.GetPosition().toString());
+			System.out.println(i+ " "+ iter.getClass().getSimpleName()+ " " + iter.GetPosition().toString());
 			i++;
 		}
 	}
@@ -362,7 +370,9 @@ public final class Test {
 	}
 	
 	public static void setTimes(int perc, int masodperc){
-		
+		Date date1 = new Date(0,0,0,0,perc,0);
+		Date date2 = new Date(0,0,0,0,0, masodperc);
+		testgame2.SetEnvironment(date1, date2);
 	}
 	
 	public static void remainingTotalTime(){
@@ -383,6 +393,12 @@ public final class Test {
 		Robot robi = robots.get(robotindex);
 		Vektor newspeed = new Vektor(x, y);
 		robi.SetSpeed(newspeed);
+	}
+	
+	public static void Update(int obstacleindex){
+		ArrayList<Obstacle> oblist = GameObjectContainer.GetObstacles();
+		Obstacle ob = oblist.get(obstacleindex);
+		ob.Update();
 	}
 }
 
