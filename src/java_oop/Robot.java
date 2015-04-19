@@ -10,7 +10,7 @@ public class Robot extends GameObject {
 	private int oil;
 	private int putty;
 	private boolean isOnTrack;
-	//sebesség állításának tiltására
+	//sebessÃ©g Ã¡llÃ­tÃ¡sÃ¡nak tiltÃ¡sÃ¡ra
 	private boolean canSetSpeed = true;
 	
 	
@@ -24,29 +24,29 @@ public class Robot extends GameObject {
 		return position;
 	}
 	
-	//adtam neki egy paramétert, hogy tudjuk, hogy hova klikkelt a user
+	//adtam neki egy paramÃ©tert, hogy tudjuk, hogy hova klikkelt a user
 	public void Jump(Vektor clickedvalue){
 		//nem vagyok robot
-		//Test.PrintLog("A játékos úgy dönt ugrik.");
+		//Test.PrintLog("A jÃ¡tÃ©kos Ãºgy dÃ¶nt ugrik.");
 		
-		//normalizáljuk a bekattintott értéket
+		//normalizÃ¡ljuk a bekattintott Ã©rtÃ©ket
 		clickedvalue = clickedvalue.Normalize();
 		Vektor newspeed = new Vektor();
 		
-		//hozzáadjuk a sebességünkhöz
+		//hozzÃ¡adjuk a sebessÃ©gÃ¼nkhÃ¶z
 		newspeed = this.speed.Add(clickedvalue);
 		
-		//hozzáadjuk az összesített értéket az eddigi pozícióhoz, ez az új pozíció
+		//hozzÃ¡adjuk az Ã¶sszesÃ­tett Ã©rtÃ©ket az eddigi pozÃ­ciÃ³hoz, ez az Ãºj pozÃ­ciÃ³
 		position = position.Add(newspeed);
 	
-		//ugrás után újra lehet állítani a sebességet
+		//ugrÃ¡s utÃ¡n Ãºjra lehet Ã¡llÃ­tani a sebessÃ©get
 		this.canSetSpeed = true;
 	}
 	
-	//az ütközött objektumok visszajelzése alapján átállítja a sebességet
+	//az Ã¼tkÃ¶zÃ¶tt objektumok visszajelzÃ©se alapjÃ¡n Ã¡tÃ¡llÃ­tja a sebessÃ©get
 	public void Modify(Vektor modvalue){
 		//Test.PrintLog();
-		//ha meg van engedve, hogy állítsuk a sebességet
+		//ha meg van engedve, hogy Ã¡llÃ­tsuk a sebessÃ©get
 		if(this.canSetSpeed){
 			speed = modvalue;
 		}
@@ -59,14 +59,14 @@ public class Robot extends GameObject {
 		//magic starts here
 		int mindistance = position.Substract(trackpoints.get(0)).Length();
 		Vektor closestpoint = trackpoints.get(0);
-		//megkeressük a legközelebbi pálya középvonal pontot hozzánk
+		//megkeressÃ¼k a legkÃ¶zelebbi pÃ¡lya kÃ¶zÃ©pvonal pontot hozzÃ¡nk
 		for(Vektor i: trackpoints){
 			if(position.Substract(trackpoints.get(0)).Length()<mindistance){
 				closestpoint = i;
 				mindistance = position.Substract(trackpoints.get(0)).Length();
 			}
 		}
-		//pályán vagyunk
+		//pÃ¡lyÃ¡n vagyunk
 		if(closestpoint.Substract(position).Length() < width)
 			isOnTrack = true;
 		//nem vagyunk
@@ -77,25 +77,27 @@ public class Robot extends GameObject {
 	
 	public boolean GetIsOnTrack(){
 		/*if(Test.selector == 2){
-			Test.PrintLog("A robot a pályán van.");
+			Test.PrintLog("A robot a pÃ¡lyÃ¡n van.");
 			//testcode
 			isOnTrack = true;
 		}
 		if(Test.selector == 3){
-			Test.PrintLog("A robot nincs a pályán, vége a körnek");
+			Test.PrintLog("A robot nincs a pÃ¡lyÃ¡n, vÃ©ge a kÃ¶rnek");
 			//testcode
 			isOnTrack = false;
 		}
 		if(Test.selector == 4){
-			Test.PrintLog("A robot a pályán van.");
+			Test.PrintLog("A robot a pÃ¡lyÃ¡n van.");
 			//testcode
 			isOnTrack = true;
 		}
 		if(Test.selector == 5){
-			Test.PrintLog("A robot nincs a pályán.");
+			Test.PrintLog("A robot nincs a pÃ¡lyÃ¡n.");
 			//testcode
 			isOnTrack = false;
 		} */
+		//ezt itt cÃ©lszerÅ± meghÃ­vni
+		CalculateIsOnTrack();
 		return isOnTrack;
 	}
 	
@@ -107,7 +109,7 @@ public class Robot extends GameObject {
 		/*if(Test.selector == 2){
 			Test.PrintLog();
 			GameObjectContainer.GetObstacles();
-			System.out.println("Nem történt ütközés.");
+			System.out.println("Nem tÃ¶rtÃ©nt Ã¼tkÃ¶zÃ©s.");
 		}
 		if(Test.selector == 4){
 			Test.PrintLog();
@@ -117,24 +119,29 @@ public class Robot extends GameObject {
 		
 		ArrayList<Robot> robotlist = GameObjectContainer.GetRobots();
 		for(Robot iter : robotlist){
-			if(iter.position.Equals(this.position)){
+			//pont azonos baromi ritkÃ¡n lesz a pozÃ­ciÃ³juk, radiusra kell vizsgÃ¡lni
+			/*if(iter.position.Equals(this.position)){*/
+			//akkor tÃ¶rtÃ©njen Ã¼tkÃ¶zÃ©s ha a kÃ©t cucc tÃ¡volsÃ¡ga kisebb mint a kiterjedÃ©seik Ã¶sszege
+			if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
 				iter.Affect(this);
 			}
 		}
 		
-		//ha még életben van, nézzük meg másra is az ütközéseket
+		//ha mÃ©g Ã©letben van, nÃ©zzÃ¼k meg mÃ¡sra is az Ã¼tkÃ¶zÃ©seket
 		if(isOnTrack){
-			//elõször az akadályokat ellenõrizzük, hogy kisrobot ütközés esetén az újonnan lerakott akadály ne legyen hatással a robotra
+			//elÃµszÃ¶r az akadÃ¡lyokat ellenÃµrizzÃ¼k, hogy kisrobot Ã¼tkÃ¶zÃ©s esetÃ©n az Ãºjonnan lerakott akadÃ¡ly ne legyen hatÃ¡ssal a robotra
 			ArrayList<Obstacle> obstaclelist = GameObjectContainer.GetObstacles();
 			for(Obstacle iter: obstaclelist){
-				if(iter.position.Equals(this.position)){
+				//itt is
+				if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
 					iter.Affect(this);
 				}
 			}
 			
 			ArrayList<SweeperRobot> sweeperlist = GameObjectContainer.GetSweeperRobot();
 			for(SweeperRobot iter : sweeperlist){
-				if(iter.position.Equals(this.position)){
+				//itt is
+				if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
 					iter.Affect(this);
 				}
 			}	
@@ -143,18 +150,18 @@ public class Robot extends GameObject {
 		
 	}
 	
-	//vektorátlag számolása és pályáról levétel (ha ez a lassabb)
+	//vektorÃ¡tlag szÃ¡molÃ¡sa Ã©s pÃ¡lyÃ¡rÃ³l levÃ©tel (ha ez a lassabb)
 	public void Affect(Robot robot){
 		Vektor newspeed = new Vektor();
-		//ez lesz az új sebesség
+		//ez lesz az Ãºj sebessÃ©g
 		newspeed = this.speed.Add(robot.GetSpeed());
 		newspeed = newspeed.DivideBy(2);
 		
-		//melyik robot sebessége volt nagyobb?
+		//melyik robot sebessÃ©ge volt nagyobb?
 		if(this.speed.isGreaterThan(robot.GetSpeed())){
 			this.Modify(newspeed);
 			
-			//és a robot törlése  --- majd újra kell rajzoltatni ilyenkor a dolgokat
+			//Ã©s a robot tÃ¶rlÃ©se  --- majd Ãºjra kell rajzoltatni ilyenkor a dolgokat
 			GameObjectContainer.RemoveRobot(robot);
 		}
 		else{

@@ -43,7 +43,10 @@ public class Game {
 			Test.Unmute();
 			tesztPlayer.Turn();
 		} */
-
+		
+		for(Player i: Players){
+			i.Turn();
+		}
 	}
 	
 	public void AddPlayer(){

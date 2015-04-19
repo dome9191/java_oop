@@ -73,9 +73,10 @@ public class Player {
 			testOil.Init(robot.GetPosition());
 		
 		} */
-		
-		
-		
+		//megnézzük, hogy a robotunk még a pályán van-e
+		if(robot.GetIsOnTrack()){
+			robot.Collision();
+		}
 	}
 	
 	public static void SetTotalTime(Date newTotalTime){
