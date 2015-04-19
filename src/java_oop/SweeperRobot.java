@@ -31,6 +31,15 @@ public class SweeperRobot extends Obstacle {
 			}
 		}
 		
+		//megnézzük, hogy kisrobottal ütközött-e
+		ArrayList<SweeperRobot> srobots = GameObjectContainer.GetSweeperRobot();
+		for(SweeperRobot iter: srobots){
+			if(iter.position == this.position){
+				//ha ütközött, akkor irányt kell váltani
+				
+			}
+		}
+		
 	}
 	
 	//szerintem neki nem kell jump, ott az update
@@ -38,7 +47,7 @@ public class SweeperRobot extends Obstacle {
 		
 	}
 	
-	public void ChangeDirection(){
+	public void GetDirection(){
 		//lekérjük az akadályokat
 		ArrayList<Obstacle> obstacles = GameObjectContainer.GetObstacles();
 		Obstacle nearest = obstacles.get(0);
