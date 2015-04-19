@@ -53,7 +53,7 @@ public class SweeperRobot extends Obstacle {
 	
 	//szerintem neki nem kell jump, ott az update -- mégis lesz, hogy mûködjön a teszt
 	public void Jump(Vektor clickedvalue){
-		Vektor newspeed = clickedvalue.Normalize();
+		Vektor newspeed = clickedvalue;
 		
 		speed = speed.Add(newspeed).Normalize();
 		position = position.Add(speed);

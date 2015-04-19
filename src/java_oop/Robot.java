@@ -146,12 +146,16 @@ public class Robot extends GameObject {
 			}
 			
 			ArrayList<SweeperRobot> sweeperlist = GameObjectContainer.GetSweeperRobot();
+			ArrayList<SweeperRobot> affectthis = new ArrayList<SweeperRobot>();
 			for(SweeperRobot iter : sweeperlist){
 				//itt is
 				if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
-					iter.Affect(this);
+					affectthis.add(iter);
 				}
-			}	
+			}
+			for(SweeperRobot iter:affectthis){
+				iter.Affect(this);
+			}
 		}
 		
 		
