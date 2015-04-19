@@ -21,7 +21,7 @@ public abstract class Obstacle extends GameObject {
 		}
 		//kitöröljük az összes megjelölt objektumot
 		for(Obstacle iter: marked){
-			obstacles.remove(iter);
+			GameObjectContainer.RemoveObstacle(iter);
 		}
 	}
 	
