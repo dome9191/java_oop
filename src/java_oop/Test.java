@@ -111,48 +111,12 @@ public final class Test {
 		{
 		case "coordinates":
 			System.out.println("Hova ugorjak Mester?\n");
-			while(true)
-			{
-				input = in.nextLine();
-				if(input.charAt(0)=='@')
-				{
-					HandleCommand(input);
-				}
-				else
-				{
-					break;
-				}
-			}
-			result[0] = Integer.parseInt(input);
-			while(true)
-			{
-				input = in.nextLine();
-				if(input.charAt(0)=='@')
-				{
-					HandleCommand(input);
-				}
-				else
-				{
-					break;
-				}
-			}
-			result[1] = Integer.parseInt(input);
+			result[0] = in.nextInt();
+			result[1] = in.nextInt();
 			break;
 		case "placeobstacles":
 			System.out.println("Mit rakjak le Mester?\n");
-			while(true)
-			{
-				input = in.nextLine();
-				if(input.charAt(0)=='@')
-				{
-					HandleCommand(input);
-				}
-				else
-				{
-					break;
-				}
-			}
-			result[0] = Integer.parseInt(input);
+			result[0] = in.nextInt();
 			//0 semmit, 1 ragacsot, 2 olajat
 			break;
 		default:
