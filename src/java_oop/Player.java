@@ -13,6 +13,9 @@ public class Player {
 	public Player(){
 		//Test.PrintLog();
 		robot = new Robot();
+		robot.SetIsOnTrack(true);
+		robot.SetPosition(GameObjectContainer.GetRaceTrack().GetStartingPoint());
+		robot.SetSpeed(new Vektor(10,0));
 	}
 	
 	public void SetTurnTime(Date newtime){

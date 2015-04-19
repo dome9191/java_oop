@@ -14,6 +14,28 @@ public class Game {
 	}
 	
 	public void Start(){
+		boolean endgame = false;
+		while(!endgame){
+			Test.PrintLog("starting game");
+			for(Player i: Players){
+				Date time = Player.GetTotalTime();
+				Test.PrintLog("first turn");
+				if(time.compareTo(new Date(0,0,0,0,0)) > 0) 
+					i.Turn();
+				else 
+					break; //end game
+			//megnézzük van-e még robot a pályán
+				endgame = true;
+				for(Robot item: GameObjectContainer.GetRobots()){
+					if(item != null && item.GetIsOnTrack()) endgame = false;
+				}
+				//nincs több robot a pályán, kilépünk
+				if(endgame) break;
+			}
+			//kör vége updatelünk mindent
+			for(Obstacle i: GameObjectContainer.GetObstacles())
+				i.Update();
+		}
 		/*String name = new Object(){}.getClass().getEnclosingMethod().getName();
 		String name2 = new Object(){}.getClass().getName();
 		System.out.println(name2+" "+name);*/
@@ -43,10 +65,6 @@ public class Game {
 			Test.Unmute();
 			tesztPlayer.Turn();
 		} */
-		
-		for(Player i: Players){
-			i.Turn();
-		}
 	}
 	
 	public void AddPlayer(){
@@ -58,7 +76,7 @@ public class Game {
 	public void SetEnvironment(Date TotalTime, Date TurnTime){
 		//Test.PrintLog();
 		RaceTrack track = new RaceTrack();
-		track.Load();
+		GameObjectContainer.GetRaceTrack().Load();
 		track.Draw();
 		
 		Player.SetTotalTime(TotalTime);

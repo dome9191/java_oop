@@ -13,6 +13,9 @@ public final class Test {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);  
 		Game testgame = new Game();
+		testgame.SetEnvironment(new Date(0,0,0,0,1), new Date(0,0,0,0,1));
+		testgame.AddPlayer();
+		testgame.AddPlayer();
 		testgame.Start();
 		/*while(true)
 		{

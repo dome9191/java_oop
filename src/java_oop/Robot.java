@@ -76,6 +76,8 @@ public class Robot extends GameObject {
 	}
 	
 	public boolean GetIsOnTrack(){
+		CalculateIsOnTrack();
+		return isOnTrack;
 		/*if(Test.selector == 2){
 			Test.PrintLog("A robot a pályán van.");
 			//testcode
@@ -97,8 +99,6 @@ public class Robot extends GameObject {
 			isOnTrack = false;
 		} */
 		//ezt itt célszerű meghívni
-		CalculateIsOnTrack();
-		return isOnTrack;
 	}
 	
 	public void SetIsOnTrack(boolean newvalue){
@@ -169,6 +169,16 @@ public class Robot extends GameObject {
 			GameObjectContainer.RemoveRobot(this);
 		}
 		
+	}
+	
+	public void SetSpeed(Vektor newspeed)
+	{
+		speed = newspeed;
+	}
+	
+	public void SetPosition(Vektor newpos)
+	{
+		position = newpos;
 	}
 	
 	public void SetOilCount(int newvalue){
