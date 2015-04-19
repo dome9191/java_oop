@@ -317,15 +317,15 @@ public final class Test {
 		
 		SweeperRobot a = new SweeperRobot();
 		a.setStartPos(k1);
-		GameObjectContainer.AddSweeperRobot(a);
+		
 		
 		SweeperRobot b = new SweeperRobot();
 		b.setStartPos(k2);
-		GameObjectContainer.AddSweeperRobot(b);
+	
 		
 		SweeperRobot c = new SweeperRobot();
 		c.setStartPos(k3);
-		GameObjectContainer.AddSweeperRobot(c);
+	
 		
 	}
 	

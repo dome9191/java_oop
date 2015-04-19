@@ -96,6 +96,7 @@ public class SweeperRobot extends Obstacle {
 	
 	public void setStartPos(Vektor pos){
 		startpos = pos;
+		position = startpos;
 	}
 	
 }
