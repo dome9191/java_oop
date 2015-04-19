@@ -105,23 +105,65 @@ public final class Test {
 	public static int[] AskInput(String opt)
 	{
 		Scanner in = new Scanner(System.in);
+		String input;
 		int[] result = new int[2];
 		switch(opt)
 		{
 		case "coordinates":
 			System.out.println("Hova ugorjak Mester?\n");
-			result[0] = in.nextInt();
-			result[1] = in.nextInt();
+			while(true)
+			{
+				input = in.nextLine();
+				if(input.charAt(0)=='@')
+				{
+					HandleCommand(input);
+				}
+				else
+				{
+					break;
+				}
+			}
+			result[0] = Integer.parseInt(input);
+			while(true)
+			{
+				input = in.nextLine();
+				if(input.charAt(0)=='@')
+				{
+					HandleCommand(input);
+				}
+				else
+				{
+					break;
+				}
+			}
+			result[1] = Integer.parseInt(input);
 			break;
 		case "placeobstacles":
 			System.out.println("Mit rakjak le Mester?\n");
-			result[0] = in.nextInt();
+			while(true)
+			{
+				input = in.nextLine();
+				if(input.charAt(0)=='@')
+				{
+					HandleCommand(input);
+				}
+				else
+				{
+					break;
+				}
+			}
+			result[0] = Integer.parseInt(input);
 			//0 semmit, 1 ragacsot, 2 olajat
 			break;
 		default:
 			break;
 		}
 		return result;
+	}
+	
+	public static void HandleCommand(String command)
+	{
+		System.out.println("Handling....");
 	}
 	
 	public static void PrintLog()
