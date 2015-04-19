@@ -10,6 +10,8 @@ public class SweeperRobot extends Obstacle {
 	
 	public SweeperRobot(){
 		GameObjectContainer.AddSweeperRobot(this);
+		speed = new Vektor(10,0);
+		this.radius = 2;
 	}
 	
 	//init megvalósítva az Obstacle-ben
@@ -27,11 +29,15 @@ public class SweeperRobot extends Obstacle {
 		//elkérjük az akadályok listáját
 		ArrayList<Obstacle> obstacles = GameObjectContainer.GetObstacles();
 		//megnézzük, hogy ütközött-e valamelyikkel
+		ArrayList<Obstacle> delete = new ArrayList<Obstacle>();
 		for(Obstacle iter: obstacles){
 			//itt is javítottam az ütközést
 			if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
-				GameObjectContainer.RemoveObstacle(iter);
+				delete.add(iter);
 			}
+		}
+		for(Obstacle iter:delete){
+			GameObjectContainer.RemoveObstacle(iter);
 		}
 		
 		//megnézzük, hogy kisrobottal ütközött-e

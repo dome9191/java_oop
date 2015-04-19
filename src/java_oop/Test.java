@@ -387,6 +387,7 @@ public final class Test {
 		ArrayList<SweeperRobot> srobots = GameObjectContainer.GetSweeperRobot();
 		SweeperRobot kisrobi = srobots.get(srobotindex);
 		Vektor jumpkoord = new Vektor(x, y);
+		kisrobi.Collision();
 		kisrobi.Jump(jumpkoord);
 	}
 	

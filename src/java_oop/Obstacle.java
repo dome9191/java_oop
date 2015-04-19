@@ -14,7 +14,7 @@ public abstract class Obstacle extends GameObject {
 		ArrayList<Obstacle> obstacles = GameObjectContainer.GetObstacles();
 		ArrayList<Obstacle> marked = new ArrayList<Obstacle>();
 		for(Obstacle iter : obstacles){
-			if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
+			if((iter != this) && (iter.position.Substract(this.position).Length() < (iter.radius+this.radius))){
 				//ha van, akkor töröljük
 				marked.add(iter);
 			}
