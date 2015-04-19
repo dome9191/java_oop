@@ -20,4 +20,8 @@ public abstract class GameObject implements Drawable {
 	public void Draw(){
 		
 	}
+	
+	public Vektor GetPosition(){
+		return position;
+	}
 }

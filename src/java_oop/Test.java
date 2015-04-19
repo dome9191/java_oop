@@ -1,6 +1,8 @@
 package java_oop;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -8,6 +10,7 @@ public final class Test {
 
 	private static int muted = 0;
 	public static int selector = 0;
+	private static Game testgame2;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -205,4 +208,122 @@ public final class Test {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void loadMap(){
+		//nem állítunk be idõket, itt csak meghívódik a pálya Load-ja
+		testgame2.SetEnvironment(null, null);
+	}
+	
+	//number számú játékost hoz létre
+	public static void addPlayer(int number){
+		for(int i = 0; i < number; i++){
+			testgame2.AddPlayer();
+		}
+	}
+	
+	public static void placeOil(int robotindex){
+		ArrayList<Player> players = testgame2.GetPlayers();
+		Player lerako = players.get(robotindex);
+		lerako.CreateOil();
+	}
+	
+	public static void placePutty(int robotindex){
+		ArrayList<Player> players = testgame2.GetPlayers();
+		Player lerako = players.get(robotindex);
+		lerako.CreatePutty();
+	}
+	
+	
+	public static void moveRobot(int x, int y, int robotindex){
+		ArrayList<Robot> robotlist = GameObjectContainer.GetRobots();
+		Robot mozgo = robotlist.get(robotindex);
+		
+		Vektor move = new Vektor(x, y);
+		mozgo.Jump(move);
+	} 
+	
+	//3 kisrobotot tesz a pályára
+	public static void startSweeperRobots(int x1, int y1, int x2, int y2, int x3, int y3){
+		Vektor k1 = new Vektor(x1,y1);
+		Vektor k2 = new Vektor(x2,y2);
+		Vektor k3 = new Vektor(x3, y3);
+		
+		SweeperRobot a = new SweeperRobot();
+		a.setStartPos(k1);
+		GameObjectContainer.AddSweeperRobot(a);
+		
+		SweeperRobot b = new SweeperRobot();
+		b.setStartPos(k2);
+		GameObjectContainer.AddSweeperRobot(b);
+		
+		SweeperRobot c = new SweeperRobot();
+		c.setStartPos(k3);
+		GameObjectContainer.AddSweeperRobot(c);
+		
+	}
+	
+	public static void deleteObstacle(int x, int y){
+		Vektor akadaly = new Vektor(x, y);
+		
+		ArrayList<Obstacle> obstacles = GameObjectContainer.GetObstacles();
+		Obstacle torlendo = null;
+		for(Obstacle iter: obstacles){
+			if(iter.GetPosition().Equals(akadaly)){
+				torlendo = iter;
+			}
+		}
+		GameObjectContainer.RemoveObstacle(torlendo);
+	}
+	
+	public static void listPlayers(){
+		ArrayList<Robot> robots = GameObjectContainer.GetRobots();
+		int i = 0;
+		for(Robot iter:robots){
+			System.out.println(i+ " " + iter.GetPosition().toString() +" " + iter.GetOilCount()+" " + iter.GetPuttyCount()+" " + iter.GetSpeed().toString());
+			i++;
+		}
+	}
+	
+	public static void listObstacles(){
+		ArrayList<Obstacle> obstacles = GameObjectContainer.GetObstacles();
+		int i = 0;
+		for(Obstacle iter:obstacles){
+			System.out.println(i+ " "+ iter.getClass().getSimpleName() + iter.GetPosition().toString());
+			i++;
+		}
+	}
+	
+	public static void listSweeperRobots(){
+		ArrayList<SweeperRobot> srobots = GameObjectContainer.GetSweeperRobot();
+		int i = 0;
+		for(SweeperRobot iter:srobots){
+			System.out.println(i+ " " + iter.GetPosition());
+			i++;
+		}
+	}
+	
+	public static void setTimes(int perc, int masodperc){
+		
+	}
+	
+	public static void remainingTotalTime(){
+		ArrayList<Player> players = testgame2.GetPlayers();
+		Player a = players.get(0);
+		System.out.println(a.GetTotalTime());
+	}
+	
+	public static void moveSweeperRobot(int x, int y, int srobotindex){
+		ArrayList<SweeperRobot> srobots = GameObjectContainer.GetSweeperRobot();
+		SweeperRobot kisrobi = srobots.get(srobotindex);
+		Vektor jumpkoord = new Vektor(x, y);
+		kisrobi.Jump(jumpkoord);
+	}
+	
+	public static void changeRobotSpeed(int x, int y, int robotindex){
+		ArrayList<Robot> robots = GameObjectContainer.GetRobots();
+		Robot robi = robots.get(robotindex);
+		Vektor newspeed = new Vektor(x, y);
+		robi.SetSpeed(newspeed);
+	}
 }
+

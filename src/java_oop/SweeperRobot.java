@@ -6,6 +6,7 @@ import java.util.Random;
 public class SweeperRobot extends Obstacle {
 	
 	private Vektor speed;
+	private Vektor startpos;
 	
 	public SweeperRobot(){
 		GameObjectContainer.AddSweeperRobot(this);
@@ -44,9 +45,12 @@ public class SweeperRobot extends Obstacle {
 		
 	}
 	
-	//szerintem neki nem kell jump, ott az update
-	public void Jump(){
+	//szerintem neki nem kell jump, ott az update -- mégis lesz, hogy mûködjön a teszt
+	public void Jump(Vektor clickedvalue){
+		Vektor newspeed = clickedvalue.Normalize();
 		
+		speed = speed.Add(newspeed).Normalize();
+		position = position.Add(speed);
 	}
 	
 	public void ChangeDirection(){
@@ -89,6 +93,8 @@ public class SweeperRobot extends Obstacle {
 		count++;
 	}
 	
-	
+	public void setStartPos(Vektor pos){
+		startpos = pos;
+	}
 	
 }

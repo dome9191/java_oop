@@ -32,4 +32,5 @@ public abstract class Obstacle extends GameObject {
 	public void Update(){
 		
 	}
+	
 }

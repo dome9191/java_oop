@@ -88,4 +88,8 @@ public class Game {
 	public void RemovePlayer(Player removethis){
 		Players.remove(removethis);
 	}
+	
+	public ArrayList<Player> GetPlayers(){
+		return Players;
+	}
 }

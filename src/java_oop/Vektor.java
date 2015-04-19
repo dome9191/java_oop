@@ -78,4 +78,9 @@ public class Vektor implements Serializable {
 		else 
 			return false;
 	}
+	
+	public String toString(){
+		String vissza = "" + this.x + " " + this.y;
+		return vissza;
+	}
 }
