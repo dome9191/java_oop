@@ -44,6 +44,45 @@ public class Player {
 	}
 	
 	public void Turn(){
+		//megnézzük, hogy a robotunk még a pályán van-e
+		if(robot != null && robot.GetIsOnTrack()){
+			//meghívjuk az ütközéseket
+			robot.Collision();
+			//megkérdezzük a játékost akar-e olajat vagy ragacsot lerakni
+			if(robot != null){
+				int[] input = Test.AskInput("placeobstacles");
+				robot.Jump(new Vektor(input[0], input[1]));
+				switch(input[0])
+				{
+				case 0:
+					//nem csinálunk semmit
+					break;
+				case 1:
+					//lerakunk egy ragacsot
+					if(robot.GetPuttyCount() > 0)
+					{
+						Putty myputty = new Putty();
+						myputty.Init(robot.GetPosition());
+					}
+					break;
+				case 2:
+					//lerakunk egy olajfoltot
+					if(robot.GetOilCount() > 0)
+					{
+						Oil myoil = new Oil();
+						myoil.Init(robot.GetPosition());
+					}
+					break;
+				default:
+					break;
+				}
+			}
+			//ha tudunk irányítani, irányítunk
+			if(robot != null && robot.getCanSetSpeed()){
+				int[] input = Test.AskInput("coordinates");
+				robot.Jump(new Vektor(input[0], input[1]));
+			}
+		}
 	/*	if(Test.selector == 2){
 			Test.PrintLog();
 			robot.GetIsOnTrack();
@@ -73,10 +112,6 @@ public class Player {
 			testOil.Init(robot.GetPosition());
 		
 		} */
-		//megnézzük, hogy a robotunk még a pályán van-e
-		if(robot.GetIsOnTrack()){
-			robot.Collision();
-		}
 	}
 	
 	public static void SetTotalTime(Date newTotalTime){

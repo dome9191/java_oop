@@ -12,8 +12,9 @@ public final class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);  
-		
-		while(true)
+		Game testgame = new Game();
+		testgame.Start();
+		/*while(true)
 		{
 			System.out.println("Java_OOP csapat Robot Game test\n");
 			System.out.println("Válassza ki a futtatandó tesztet:\n\n");
@@ -95,9 +96,29 @@ public final class Test {
 				}
 				break;
 			}
+		}*/
+	}
+	
+	public static int[] AskInput(String opt)
+	{
+		Scanner in = new Scanner(System.in);
+		int[] result = new int[2];
+		switch(opt)
+		{
+		case "coordinates":
+			System.out.println("Hova ugorjak Mester?\n");
+			result[0] = in.nextInt();
+			result[1] = in.nextInt();
+			break;
+		case "placeobstacles":
+			System.out.println("Mit rakjak le Mester?\n");
+			result[0] = in.nextInt();
+			//0 semmit, 1 ragacsot, 2 olajat
+			break;
+		default:
+			break;
 		}
-		
-		
+		return result;
 	}
 	
 	public static void PrintLog()
