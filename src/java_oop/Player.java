@@ -74,6 +74,8 @@ public class Player {
 		
 		} */
 		
+		
+		
 	}
 	
 	public static void SetTotalTime(Date newTotalTime){
