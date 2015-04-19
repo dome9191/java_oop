@@ -37,6 +37,7 @@ public final class GameObjectContainer {
 	public static void RemoveObstacle(Obstacle removeThis){
 		//Test.PrintLog();
 		obstacles.remove(removeThis);
+		removeThis = null;
 	}
 	
 	public static RaceTrack GetRaceTrack(){
@@ -65,6 +66,7 @@ public final class GameObjectContainer {
 	
 	public static void RemoveSweeperRobot(SweeperRobot sRobot){
 		sweeperrobots.remove(sRobot);
+		sRobot = null;
 	}
 	
 	public static ArrayList<SweeperRobot> GetSweeperRobot(){
@@ -73,5 +75,6 @@ public final class GameObjectContainer {
 	
 	public static void RemoveRobot(Robot removethis){
 		robots.remove(removethis);
+		removethis = null;
 	}
 }

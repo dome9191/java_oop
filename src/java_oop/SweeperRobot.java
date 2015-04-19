@@ -22,6 +22,14 @@ public class SweeperRobot extends Obstacle {
 	}
 	
 	public void Collision(){
+		//elkérjük az akadályok listáját
+		ArrayList<Obstacle> obstacles = GameObjectContainer.GetObstacles();
+		//megnézzük, hogy ütközött-e valamelyikkel
+		for(Obstacle iter: obstacles){
+			if(iter.position == this.position){
+				GameObjectContainer.RemoveObstacle(iter);
+			}
+		}
 		
 	}
 	
