@@ -1,6 +1,7 @@
 package java_oop;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SweeperRobot extends Obstacle {
 	
@@ -36,7 +37,7 @@ public class SweeperRobot extends Obstacle {
 		for(SweeperRobot iter: srobots){
 			if(iter.position == this.position){
 				//ha ütközött, akkor irányt kell váltani
-				
+				this.ChangeDirection();
 			}
 		}
 		
@@ -45,6 +46,17 @@ public class SweeperRobot extends Obstacle {
 	//szerintem neki nem kell jump, ott az update
 	public void Jump(){
 		
+	}
+	
+	public void ChangeDirection(){
+		//ilyenkor már lefutott a GetDirection, tehát a speed be van állítva az új irányba, csak hozzá kell adni valami
+		//random számot az egyik koordinátájához és normalizálni
+		Random rn = new Random();
+		
+		//20-50 közötti random koorindátával eltoljuk y irányban
+		int number = rn.nextInt((50 - 20) + 1) + 20;
+		Vektor changed = new Vektor(0, number);
+		speed = speed.Add(changed).Normalize();
 	}
 	
 	public void GetDirection(){
@@ -64,8 +76,16 @@ public class SweeperRobot extends Obstacle {
 	}
 	
 	public void Update(){
+		//megkeresik, hogy merre menjenek
+		this.GetDirection();
+		//ugrás elõtt megnézik, hogy nincs-e valami takarítani való, vagy ütközés
+		this.Collision();
+		
 		//a kisrobotok maguktól mozognak
 		position.Add(speed);
+		
+		//valamennyi körig lesznek bent, ez számolja
+		count++;
 	}
 	
 	
