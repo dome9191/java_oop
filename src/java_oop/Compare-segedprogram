@@ -33,7 +33,7 @@ public class Compare
 	                    }
 	                while(infile1.hasNextLine() || infile2.hasNextLine())
 	                {
-	                   if(infile1.hasNextLine() != null)
+	                   if(infile1.hasNextLine())
 	                   {
 	                    	line1=readFrom(infile1);
 	                   }
@@ -41,7 +41,7 @@ public class Compare
 	                   {
 	                   	line1=null;
 	                   }
-	                   if(infile2.hasNextLine() != null)
+	                   if(infile2.hasNextLine())
 	                   {
 	                    	line2=readFrom(infile2);
 	                   }
