@@ -117,7 +117,7 @@ public final class Test {
 			switch(opt)
 			{
 			case "coordinates":
-				System.out.println("Hova ugorjak Mester?\n");
+				//System.out.println("Hova ugorjak Mester?\n");
 				while(true)
 				{
 					input = in.nextLine();
@@ -146,7 +146,7 @@ public final class Test {
 				result[1] = Integer.parseInt(input);
 				break;
 			case "placeobstacles":
-				System.out.println("Mit rakjak le Mester?\n");
+				//System.out.println("Mit rakjak le Mester?\n");
 				while(true)
 				{
 					input = in.nextLine();
@@ -366,7 +366,7 @@ public final class Test {
 		ArrayList<SweeperRobot> srobots = GameObjectContainer.GetSweeperRobot();
 		int i = 0;
 		for(SweeperRobot iter:srobots){
-			System.out.println(i+ " " + iter.GetPosition());
+			System.out.println(i+ " " + iter.GetPosition()+ " " + iter.getDirection());
 			i++;
 		}
 	}
