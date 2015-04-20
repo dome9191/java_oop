@@ -23,8 +23,18 @@ public class Compare
 	                int counter = 0;
 	                String line1 = readFrom(infile1);
 	                String line2 = readFrom(infile2);
-	                while((infile1.hasNextLine()) != null && (infile2.hasNextLine()) != null)
+	                int answer_plus = line1.compareTo(line2);
+	                    if(answer_plus != 0)
+	                    {
+	                        System.out.println("Difference found:");
+	                        printLine("<",line1);
+	                        printLine(">",line2);
+	                        counter++;
+	                    }
+	                while(((infile1.hasNextLine()) != null) && ((infile2.hasNextLine()) != null))
 	                {
+	                    line1=readFrom(infile1);
+	                    line2=readFrom(infile2);
 	                    int answer = line1.compareTo(line2);
 	                    if(answer != 0)
 	                    {
@@ -33,9 +43,6 @@ public class Compare
 	                        printLine(">",line2);
 	                        counter++;
 	                    }
-	                    else;
-	                    line1=readFrom(infile1);
-	                    line2=readFrom(infile2);
 	                }
 	                if(counter == 0)
 	                {
