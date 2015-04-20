@@ -1,0 +1,7 @@
+@listPlayers
+@changeRobotSpeed(100,0,0)
+@moveRobot(100,0,0)
+@listPlayers
+@moveRobot(30,30,0)
+@listPlayers
+@exit

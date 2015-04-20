@@ -1,0 +1,7 @@
+@startSweeperRobots(0,20,0,10,0,0)
+@listSweeperRobots
+@listPlayers
+@moveRobot(10,20,0)
+@listSweeperRobots
+@listObstacles
+@exit

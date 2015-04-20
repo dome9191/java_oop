@@ -1,0 +1,5 @@
+@startSweeperRobots(0,20,0,0,0,0)
+@listSweeperRobots
+@moveSweeperRobot(10,10,2)
+@listSweeperRobots
+@exit

@@ -1,0 +1,7 @@
+@placeOil(0)
+@listObstacles
+@Update(0)
+@Update(0)
+@Update(0)
+@listObstacles
+@exit

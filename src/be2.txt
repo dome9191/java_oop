@@ -1,0 +1,6 @@
+@listPlayers
+@placeOil(0)
+@moveRobot(10,20,0)
+@listObstacles
+@listPlayers
+@exit
