@@ -34,6 +34,8 @@ public class Compare
 	                        counter++;
 	                    }
 	                    else;
+	                    line1=readFrom(inifile1);
+	                    line2=readFrom(inifile2);
 	                }
 	                if(counter == 0)
 	                {
