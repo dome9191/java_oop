@@ -6,12 +6,16 @@ public class Compare
 {
 	public static void main(String[] args) throws IOException
 	    {
+	     	/* Bekérjük a felhasználótól a két vizsgálandó fájl nevét */
 	        Scanner keyboard = new Scanner(System.in);
 	        System.out.print("Enter first file's name: ");
 	        String file1 = keyboard.next();
 	        System.out.print("Enter second file's name: ");
 	        String file2 = keyboard.next();
 	        System.out.println(" ");
+	        
+	        /* Létrehozunk mindkét fájlnak egy-egy megfelelő változót
+	        majd meghívjuk rájuk az összehasonlító függvényt */
 	        File inputFile1 = new File(file1);
 	        Scanner infile1 = new Scanner(inputFile1);
 	        File inputFile2 = new File(file2);
@@ -20,9 +24,14 @@ public class Compare
 	    }
 	public static void compareFiles(Scanner infile1, Scanner infile2) throws IOException
 	        {
+	        	/* Létrehozunk egy számlálót, az eltérések számolására */
 	                int counter = 0;
+	                
+	                /* Beolvassuk a két fájl kezdő sorait */
 	                String line1 = readFrom(infile1);
 	                String line2 = readFrom(infile2);
+	                
+	                /* Az első sorokat összehasonlítjuk */
 	                int answer_plus = line1.compareTo(line2);
 	                    if(answer_plus != 0)
 	                    {
@@ -31,8 +40,12 @@ public class Compare
 	                        printLine(">",line2);
 	                        counter++;
 	                    }
+	                     /* Ha a következő sor üres mindkét fájlban,
+	                     akkor befejezettnek tekintjük az összehasonlítást */
 	                while(infile1.hasNextLine() || infile2.hasNextLine())
 	                {
+	                   /* Ha van következő sor, akkor azt beolvassuk,
+	                   ezt mindkét fájl esetén elvégezzük */
 	                   if(infile1.hasNextLine())
 	                   {
 	                    	line1=readFrom(infile1);
@@ -44,12 +57,14 @@ public class Compare
 	                    int answer = line1.compareTo(line2);
 	                    if(answer != 0)
 	                    {
+	                    	/* Kiírjuk a különbséget */
 	                        System.out.println("Difference found:");
 	                        printLine("<",line1);
 	                        printLine(">",line2);
 	                        counter++;
 	                    }
 	                }
+	                /* Kiírjuk a teszt végeredményét */
 	                if(counter == 0)
 	                {
 	                	System.out.println("The test passed");
