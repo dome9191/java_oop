@@ -37,9 +37,17 @@ public class Compare
 	                   {
 	                    	line1=readFrom(infile1);
 	                   }
+	                   else
+	                   {
+	                   	line1=null;
+	                   }
 	                   if(infile2.hasNextLine() != null)
 	                   {
 	                    	line2=readFrom(infile2);
+	                   }
+	                   else
+	                   {
+	                   	line2=null;
 	                   }
 	                    int answer = line1.compareTo(line2);
 	                    if(answer != 0)
