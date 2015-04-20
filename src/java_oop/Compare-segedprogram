@@ -23,7 +23,7 @@ public class Compare
 	                int counter = 0;
 	                String line1 = readFrom(infile1);
 	                String line2 = readFrom(infile2);
-	                while((line1.hasNextLine()) != null && (line2.hasNextLine()) != null)
+	                while((infile1.hasNextLine()) != null && (infile2.hasNextLine()) != null)
 	                {
 	                    int answer = line1.compareTo(line2);
 	                    if(answer != 0)
@@ -34,8 +34,8 @@ public class Compare
 	                        counter++;
 	                    }
 	                    else;
-	                    line1=readFrom(inifile1);
-	                    line2=readFrom(inifile2);
+	                    line1=readFrom(infile1);
+	                    line2=readFrom(infile2);
 	                }
 	                if(counter == 0)
 	                {
