@@ -23,12 +23,12 @@ public class Compare
 	                int counter = 0;
 	                String line1 = readFrom(infile1);
 	                String line2 = readFrom(infile2);
-	                while(line1 != null && line2 != null)
+	                while((line1 = fileReader.hasNextLine()) != null && (line1 = fileReader.hasNextLine()) != null)
 	                {
 	                    int answer = line1.compareTo(line2);
 	                    if(answer != 0)
 	                    {
-	                        System.out.println("Difference found");
+	                        System.out.println("Difference found:");
 	                        printLine("<",line1);
 	                        printLine(">",line2);
 	                        counter++;
