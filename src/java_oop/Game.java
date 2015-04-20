@@ -25,16 +25,15 @@ public class Game {
 				else 
 					break; //end game
 			//megnézzük van-e még robot a pályán
-				endgame = true;
+				//endgame = true;
 				for(Robot item: GameObjectContainer.GetRobots()){
 					if(item != null && item.GetIsOnTrack()) {
 						endgame = false;
 					}
-					//ez nem jó ha egy robot nincs a pályán true lesz-.-
-					/*else{
+					else{
 						endgame = true;
 						break;
-					}*/
+					}
 				}
 				//nincs több robot a pályán, kilépünk
 				if(endgame) break;
