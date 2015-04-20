@@ -52,11 +52,11 @@ public class Compare
 	                }
 	                if(counter == 0)
 	                {
-	                	System.out.println((char)27 +"[32mThe test passed ");
+	                	System.out.println("The test passed");
 	                }
 	                else
 	                {
-	                	System.out.println((char)27 +"[31mThe test failed ");
+	                	System.out.println("The test failed");
 	                }
 	        }
 	        public static String readFrom(Scanner infile) throws IOException
