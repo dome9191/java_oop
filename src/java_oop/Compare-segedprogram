@@ -31,7 +31,7 @@ public class Compare
 	                        printLine(">",line2);
 	                        counter++;
 	                    }
-	                while(((infile1.hasNextLine()) != null) && ((infile2.hasNextLine()) != null))
+	                while(infile1.hasNextLine() && infile2.hasNextLine())
 	                {
 	                    line1=readFrom(infile1);
 	                    line2=readFrom(infile2);
