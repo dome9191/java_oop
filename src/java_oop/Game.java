@@ -16,20 +16,21 @@ public class Game {
 	public void Start(){
 		boolean endgame = false;
 		while(!endgame){
-			Test.PrintLog("starting game");
 			for(Player i: Players){
-				Date time = Player.GetTotalTime();
-				Test.PrintLog("first turn");
-				if(time.compareTo(new Date(0,0,0,0,0)) > 0) 
+				if(Player.GetTotalTime() > 0){ 
 					i.Turn();
-				else 
+				}
+				else{
+					endgame = true;
 					break; //end game
+				}
 			//megnézzük van-e még robot a pályán
 				endgame = true;
 				for(Robot item: GameObjectContainer.GetRobots()){
 					if(item != null && item.GetIsOnTrack()) {
 						endgame = false;
 					}
+					
 					/*else{
 						endgame = true;
 						break;
@@ -79,7 +80,7 @@ public class Game {
 		Players.get(Players.size()-1).SetObstaclesCount(3,3);
 	}
 	
-	public void SetEnvironment(Date TotalTime, Date TurnTime){
+	public void SetEnvironment(int TotalTime, int TurnTime){
 		//Test.PrintLog();
 		RaceTrack track = new RaceTrack();
 		GameObjectContainer.GetRaceTrack().Load();

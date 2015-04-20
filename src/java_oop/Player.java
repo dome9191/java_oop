@@ -5,8 +5,8 @@ import java.util.Vector;
 
 public class Player {
 	
-	private static Date TotalTime;
-	private Date TurnTime;
+	private static int TotalTime;
+	private int TurnTime;
 	private Robot robot;
 	private double Distance;
 	
@@ -18,7 +18,7 @@ public class Player {
 		robot.SetSpeed(new Vektor(10,0));
 	}
 	
-	public void SetTurnTime(Date newtime){
+	public void SetTurnTime(int newtime){
 		//Test.PrintLog();
 		TurnTime = newtime;
 	}
@@ -86,7 +86,9 @@ public class Player {
 			if(robot != null && robot.getCanSetSpeed()){
 				int[] input = Test.AskInput("coordinates");
 				robot.Jump(new Vektor(input[0], input[1]));
+				robot.setCanSetSpeed(true);
 			}
+			SetTotalTime(this.GetTotalTime()-1);
 		}
 	/*	if(Test.selector == 2){
 			Test.PrintLog();
@@ -119,7 +121,7 @@ public class Player {
 		} */
 	}
 	
-	public static void SetTotalTime(Date newTotalTime){
+	public static void SetTotalTime(int newTotalTime){
 		//Test.PrintLog();
 		TotalTime = newTotalTime;
 	}
@@ -131,7 +133,7 @@ public class Player {
 		robot.SetPuttyCount(putty);
 	}
 	
-	public static Date GetTotalTime(){
+	public static int GetTotalTime(){
 		/*Test.PrintLog();
 		if(Test.selector == 6){
 			System.out.println("Lejárt az idõ, már nem léphet senki, vége a játéknak!");

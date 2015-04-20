@@ -15,7 +15,7 @@ public final class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);  
-		testgame2.SetEnvironment(new Date(0,0,0,0,1), new Date(0,0,0,0,1));
+		testgame2.SetEnvironment(100, 100);
 		//testgame2.AddPlayer();
 		testgame2.AddPlayer();
 		testgame2.Start();
@@ -277,7 +277,7 @@ public final class Test {
 	
 	public static void loadMap(){
 		//nem állítunk be idõket, itt csak meghívódik a pálya Load-ja
-		testgame2.SetEnvironment(new Date(0,0,0,0,0,0), new Date(0,0,0,0,0,0));
+		testgame2.SetEnvironment(100, 100);
 	}
 	
 	//number számú játékost hoz létre
@@ -371,10 +371,8 @@ public final class Test {
 		}
 	}
 	
-	public static void setTimes(int perc, int masodperc){
-		Date date1 = new Date(0,0,0,0,perc,0);
-		Date date2 = new Date(0,0,0,0,0, masodperc);
-		testgame2.SetEnvironment(date1, date2);
+	public static void setTimes(int totaltime, int turntime){
+		testgame2.SetEnvironment(totaltime, turntime);
 	}
 	
 	public static void remainingTotalTime(){

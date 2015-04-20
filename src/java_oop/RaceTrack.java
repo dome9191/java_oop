@@ -18,7 +18,7 @@ public class RaceTrack extends GameObject {
 		//Test.PrintLog();
 		//teszt kód
 		//generálunk egy ellipszist....
-		Width = 20;
+		Width = 30;
 		startingpoint = new Vektor(0,20);
 		Points = new ArrayList<Vektor>();
 		for(int i = 0; i<800; i++){
