@@ -121,6 +121,8 @@ public final class Test {
 				while(true)
 				{
 					input = in.nextLine();
+					if(input.compareTo("")==0)
+						continue;
 					if(input.charAt(0)=='@')
 					{
 						HandleCommand(input);
@@ -134,6 +136,8 @@ public final class Test {
 				while(true)
 				{
 					input = in.nextLine();
+					if(input.compareTo("")==0)
+						continue;
 					if(input.charAt(0)=='@')
 					{
 						HandleCommand(input);
@@ -150,6 +154,8 @@ public final class Test {
 				while(true)
 				{
 					input = in.nextLine();
+					if(input.compareTo("")==0)
+						continue;
 					if(input.charAt(0)=='@')
 					{
 						HandleCommand(input);
