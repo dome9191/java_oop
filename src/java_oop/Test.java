@@ -230,6 +230,9 @@ public final class Test {
 		case "Update":
 			Update(opts.get(0));
 			break;
+		case "exit":
+			exit();
+			break;
 		default:
 			break;
 		}
@@ -400,6 +403,10 @@ public final class Test {
 		ArrayList<Obstacle> oblist = GameObjectContainer.GetObstacles();
 		Obstacle ob = oblist.get(obstacleindex);
 		ob.Update();
+	}
+	
+	public static void exit(){
+		System.exit(0);
 	}
 }
 
