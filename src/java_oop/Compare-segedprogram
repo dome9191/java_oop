@@ -37,17 +37,9 @@ public class Compare
 	                   {
 	                    	line1=readFrom(infile1);
 	                   }
-	                   else
-	                   {
-	                   	line1=null;
-	                   }
 	                   if(infile2.hasNextLine())
 	                   {
 	                    	line2=readFrom(infile2);
-	                   }
-	                   else
-	                   {
-	                   	line2=null;
 	                   }
 	                    int answer = line1.compareTo(line2);
 	                    if(answer != 0)
@@ -60,11 +52,11 @@ public class Compare
 	                }
 	                if(counter == 0)
 	                {
-	                	System.out.println("[32mThe test passed ");
+	                	System.out.println((char)27 +"[32mThe test passed ");
 	                }
 	                else
 	                {
-	                	System.out.println("[31mThe test failed ");
+	                	System.out.println((char)27 +"[31mThe test failed ");
 	                }
 	        }
 	        public static String readFrom(Scanner infile) throws IOException
