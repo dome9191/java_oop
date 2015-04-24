@@ -134,7 +134,7 @@ public class Menu extends JFrame {
 		phoebeLabel.setForeground(Color.BLUE);
 		phoebeLabel.setBackground(Color.BLACK);
 		phoebeLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		phoebeLabel.setBounds(85, 11, 174, 19);
+		phoebeLabel.setBounds(100, 11, 174, 19);
 		getContentPane().add(phoebeLabel);
 		
 		//jelennyen má' meg középen 
