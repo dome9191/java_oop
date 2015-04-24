@@ -6,10 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Toolkit;
+
 import javax.swing.SpinnerNumberModel;
 
 public class Menu extends JFrame {
@@ -132,5 +136,9 @@ public class Menu extends JFrame {
 		phoebeLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		phoebeLabel.setBounds(85, 11, 174, 19);
 		getContentPane().add(phoebeLabel);
+		
+		//jelennyen má' meg középen 
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 	}
 }
