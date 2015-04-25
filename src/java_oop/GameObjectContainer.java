@@ -9,6 +9,7 @@ public final class GameObjectContainer {
 	private static ArrayList<Robot> robots = new ArrayList<Robot>();
 	private static RaceTrack track;
 	private static ArrayList<SweeperRobot> sweeperrobots = new ArrayList<SweeperRobot>();
+	private static GameScreen screen;
 	
 	private GameObjectContainer()
 	{
@@ -76,5 +77,13 @@ public final class GameObjectContainer {
 	public static void RemoveRobot(Robot removethis){
 		robots.remove(removethis);
 		removethis = null;
+	}
+	
+	public static void SetGameScreen(GameScreen myscreen){
+		screen = myscreen;
+	}
+	
+	public static GameScreen GetGameScreen(){
+		return screen;
 	}
 }

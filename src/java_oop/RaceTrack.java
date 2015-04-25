@@ -18,11 +18,11 @@ public class RaceTrack extends GameObject {
 		//Test.PrintLog();
 		//teszt kód
 		//generálunk egy ellipszist....
-		Width = 30;
-		startingpoint = new Vektor(0,20);
+		Width = 100;
+		startingpoint = new Vektor(100,200);
 		Points = new ArrayList<Vektor>();
 		for(int i = 0; i<800; i++){
-			Points.add(new Vektor(i, 20));
+			Points.add(new Vektor(i, 200));
 		}
 		/*Vektor center = new Vektor(400,300);
 		for(int i = 0; i<360; i++ ){
@@ -33,7 +33,11 @@ public class RaceTrack extends GameObject {
 	}
 	
 	public void Draw(){
-		//Test.PrintLog();
+		for(Vektor elem : Points){
+			int i = 0;
+			i++;
+			GameObjectContainer.GetGameScreen().drawCircle(elem.x, elem.y, Width, Width, color.GRAY);
+		}
 	}
 	
 	public ArrayList<Vektor> GetPoints(){

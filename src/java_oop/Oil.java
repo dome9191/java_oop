@@ -7,7 +7,7 @@ public class Oil extends Obstacle {
 	public Oil(){
 		//Test.PrintLog();
 		GameObjectContainer.AddObstacle(this);
-		this.radius = 1;
+		this.radius = 20;
 	}
 	
 	//init és getcount megvalósítva az Obstacle-ben
@@ -36,5 +36,9 @@ public class Oil extends Obstacle {
 		if(this.count == 3){
 			GameObjectContainer.RemoveObstacle(this);
 		}
+	}
+	
+	public void Draw(){
+		GameObjectContainer.GetGameScreen().drawCircle(this.position.x, this.position.y, this.radius, this.radius, color.BLACK);
 	}
 }

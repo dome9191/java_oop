@@ -5,7 +5,7 @@ public class Putty extends Obstacle {
 	
 	public Putty(){
 		GameObjectContainer.AddObstacle(this);
-		this.radius = 1;
+		this.radius = 20;
 	}
 	
 	//init és getcount megvalósítva az Obstacle-ben
@@ -34,5 +34,9 @@ public class Putty extends Obstacle {
 	//asszem itt haszontalan, nem csinál semmit
 	public void Update(){
 		
+	}
+	
+	public void Draw(){
+		GameObjectContainer.GetGameScreen().drawCircle(this.position.x, this.position.y, this.radius, this.radius, color.WHITE);
 	}
 }

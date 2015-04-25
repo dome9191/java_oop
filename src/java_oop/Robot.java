@@ -16,7 +16,7 @@ public class Robot extends GameObject {
 	
 	public Robot(){
 		//Test.PrintLog();
-		this.radius = 4;
+		this.radius = 40;
 		GameObjectContainer.AddRobot(this);
 	}
 	
@@ -221,5 +221,8 @@ public class Robot extends GameObject {
 	public void setCanSetSpeed(boolean canSetSpeed) {
 		this.canSetSpeed = canSetSpeed;
 	}
-
+	
+	public void Draw(){
+		GameObjectContainer.GetGameScreen().drawCircle(this.position.x, this.position.y, this.radius, this.radius, color.BLUE);
+	}
 }

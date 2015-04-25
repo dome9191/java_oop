@@ -42,6 +42,17 @@ public class Menu extends JFrame {
 				try {
 					Menu frame = new Menu();
 					frame.setVisible(true);
+					java.awt.EventQueue.invokeLater(new Runnable() {
+			              public void run() {
+			            	   Game myscreentest = new Game();
+			            	   myscreentest.SetEnvironment(10, 10);
+			            	   myscreentest.AddPlayer();
+			            	   myscreentest.AddPlayer();
+			                   GameScreen frame = new GameScreen(myscreentest);
+			                   frame.setVisible(true);
+			                   frame.repaint();
+			              }
+			        });
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

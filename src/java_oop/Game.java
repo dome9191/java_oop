@@ -84,8 +84,7 @@ public class Game {
 		//Test.PrintLog();
 		RaceTrack track = new RaceTrack();
 		GameObjectContainer.GetRaceTrack().Load();
-		track.Draw();
-		
+		//track.Draw();
 		Player.SetTotalTime(TotalTime);
 		for(Player item:Players){
 			item.SetTurnTime(TurnTime);
@@ -98,5 +97,24 @@ public class Game {
 	
 	public ArrayList<Player> GetPlayers(){
 		return Players;
+	}
+	
+	public void DrawGame(){
+		//a háttér kirajzolása
+		GameObjectContainer.GetGameScreen().DrawBackground();
+		//pálya kirajzolása
+		GameObjectContainer.GetRaceTrack().Draw();
+		//akadályok kirajzolása
+		for(GameObject elem:GameObjectContainer.GetObstacles()){
+			elem.Draw();
+		}
+		//robotok kirajzolása
+		for(GameObject elem:GameObjectContainer.GetRobots()){
+			elem.Draw();
+		}
+	}
+	
+	public void SetScreen(GameScreen myscreen){
+		GameObjectContainer.SetGameScreen(myscreen);
 	}
 }
