@@ -19,6 +19,7 @@ public class GameScreen extends JFrame {
 		myGame = currentgame;
 		currentgame.SetScreen(this);
 		setSize(800, 600);
+		this.setResizable(false);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.addMouseListener(new MouseListener() {      
             public void mouseClicked(MouseEvent mouse) {
