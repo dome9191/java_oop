@@ -23,14 +23,15 @@ public class Vektor implements Serializable {
 		return (int)Math.round(Math.sqrt(this.x * this.x + this.y * this.y));
 	}
 	public Vektor Normalize(){
-		Vektor normalized = new Vektor();
-		
+		Vektor normalized = new Vektor((int)(x*(20.0/Length())), (int)(y*(20.0/Length())));
+		/*
 		double length = Math.sqrt(this.x * this.x + this.y * this.y);
 		
 		//van pár eset, amikor a math.round jobb
 		normalized.x = (int) Math.round(this.x / length);
 		normalized.y = (int) Math.round(this.y /length);
-		
+		*/
+		//itt valami nem guriga mindent -1,1-re csinál, legyen 20 az egység
 		return normalized;
 	}
 	

@@ -55,8 +55,9 @@ public class Player {
 			robot.Collision();
 			//megkérdezzük a játékost akar-e olajat vagy ragacsot lerakni
 			if(robot != null){
-				int[] input = Test.AskInput("placeobstacles");
-				robot.Jump(new Vektor(input[0], input[1]));
+				int[] input = GameObjectContainer.GetGameScreen().AskInput("placeobstacles");
+				//int[] input = Test.AskInput("placeobstacles");
+				//robot.Jump(new Vektor(input[0], input[1]));
 				switch(input[0])
 				{
 				case 0:
@@ -84,7 +85,8 @@ public class Player {
 			}
 			//ha tudunk irányítani, irányítunk
 			if(robot != null && robot.getCanSetSpeed()){
-				int[] input = Test.AskInput("coordinates");
+				int[] input = GameObjectContainer.GetGameScreen().AskInput("coordinates");
+				//int[] input = Test.AskInput("coordinates");
 				robot.Jump(new Vektor(input[0], input[1]));
 				robot.setCanSetSpeed(true);
 			}

@@ -84,8 +84,7 @@ public class GameScreen extends JFrame {
             public void mouseClicked(MouseEvent mouse) {
             	x = mouse.getX();
         	    y = mouse.getY();
-        	    wantoil = 0;
-        	    wantputty = 0;
+        	    myGame.GetPlayers().get(myGame.GetNextPlayer()).Turn();
             	myGame.DrawGame();
             }
 			@Override
@@ -160,5 +159,32 @@ public class GameScreen extends JFrame {
 		else{
 			drawCircle(width-40, height-30, 15 ,15, Color.DARK_GRAY);
 		}
+	}
+	//ugyanaz a függvény mint a tesztosztályban szépen visszaadja hogy mit akarunk
+	public int[] AskInput(String opt){
+		int[] result = new int[2];
+		switch(opt)
+		{
+		case "coordinates":
+			result[0] = x;
+			result[1] = y;
+			break;
+		case "placeobstacles":
+			result[0] = 0;
+			if(wantoil == 1)
+			{
+				result[0] = 2;
+				}
+			if(wantputty == 1)
+			{
+				result[0] = 1;
+			}
+			wantoil = 0;
+    	    wantputty = 0;
+			break;
+		default:
+			break;
+		}
+	return result;
 	}
 }

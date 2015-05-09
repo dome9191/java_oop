@@ -29,16 +29,17 @@ public class Robot extends GameObject {
 	public void Jump(Vektor clickedvalue){
 		//nem vagyok robot
 		//Test.PrintLog("A játékos úgy dönt ugrik.");
-		
+		//koordináta transzformáció
+		clickedvalue = clickedvalue.Substract(position);
 		//normalizáljuk a bekattintott értéket
 		clickedvalue = clickedvalue.Normalize();
 		Vektor newspeed = new Vektor();
 		
 		//hozzáadjuk a sebességünkhöz
 		newspeed = this.speed.Add(clickedvalue);
-		
+		speed = newspeed;
 		//hozzáadjuk az összesített értéket az eddigi pozícióhoz, ez az új pozíció
-		position = position.Add(newspeed);
+		position = position.Add(speed);
 	
 		//ugrás után újra lehet állítani a sebességet
 		this.canSetSpeed = true;
@@ -62,13 +63,13 @@ public class Robot extends GameObject {
 		Vektor closestpoint = trackpoints.get(0);
 		//megkeressük a legközelebbi pálya középvonal pontot hozzánk
 		for(Vektor i: trackpoints){
-			if(position.Substract(trackpoints.get(0)).Length()<mindistance){
+			if(position.Substract(i).Length()<mindistance){
 				closestpoint = i;
-				mindistance = position.Substract(trackpoints.get(0)).Length();
+				mindistance = position.Substract(i).Length();
 			}
 		}
 		//pályán vagyunk
-		if(closestpoint.Substract(position).Length() < width)
+		if(mindistance < width)
 			isOnTrack = true;
 		//nem vagyunk
 		else

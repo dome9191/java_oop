@@ -8,6 +8,7 @@ public class Game {
 	
 	private ArrayList<Player> Players;
 	private RaceTrack raceTrack;
+	private int nextplayer = 0;
 	
 	public Game(){
 		Players = new ArrayList<Player>();
@@ -97,6 +98,18 @@ public class Game {
 	
 	public ArrayList<Player> GetPlayers(){
 		return Players;
+	}
+	
+	//visszaadja ki következik és növeli is
+	public int GetNextPlayer(){
+		int ret = nextplayer;
+		if(nextplayer == Players.size()-1){
+			nextplayer = 0;
+		}
+		else{
+			nextplayer += 1;
+		}
+		return ret;
 	}
 	
 	public void DrawGame(){
