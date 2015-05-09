@@ -21,15 +21,15 @@ public class RaceTrack extends GameObject {
 		Width = 100;
 		startingpoint = new Vektor(100,200);
 		Points = new ArrayList<Vektor>();
-		for(int i = 0; i<800; i++){
+		/*for(int i = 0; i<800; i++){
 			Points.add(new Vektor(i, 200));
-		}
-		/*Vektor center = new Vektor(400,300);
+		}*/
+		Vektor center = new Vektor(350,250);
 		for(int i = 0; i<360; i++ ){
 			Points.add(new Vektor(
-					(int)Math.round(Math.sin(Math.toRadians( i ))*300.0),
-					(int)Math.round(Math.cos(Math.toRadians( i ))*200.0)));
-		} */
+					(int)Math.round(Math.sin(Math.toRadians( i ))*300.0)+center.x,
+					(int)Math.round(Math.cos(Math.toRadians( i ))*200.0)+center.y));
+		} 
 	}
 	
 	public void Draw(){
