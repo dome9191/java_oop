@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.SpinnerNumberModel;
 
@@ -73,8 +74,19 @@ public class Menu extends JFrame {
 		              public void run() {
 		            	   Game myscreentest = new Game();
 		            	   myscreentest.SetEnvironment(10, 10);
-		            	   myscreentest.AddPlayer();
-		            	   myscreentest.AddPlayer();
+		            	   
+		            	   //annyi játékos, amennyit bejelöltek
+		            	   for(int i = 1; i < (int)jatekosszamSpinner.getValue(); i++){
+		            		   myscreentest.AddPlayer();
+		            	   }
+		            	   
+		            	   //robotoknak olaj és ragacs szám beállítása
+		            	   ArrayList<Robot> robotok = GameObjectContainer.GetRobots();
+		            	   for(Robot iter : robotok){
+		            		   iter.SetOilCount((int)olajSpinner.getValue());
+		            		   iter.SetPuttyCount((int)ragacsSpinner.getValue());
+		            	   }
+		            	  
 		                   GameScreen frame = new GameScreen(myscreentest);
 		                   frame.setVisible(true);
 		                   frame.repaint();

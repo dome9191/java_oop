@@ -36,16 +36,20 @@ public class Player {
 	
 	public void CreateOil(){
 		//Test.PrintLog("A játékos úgy döntött lerak egy olajfoltot.");
-		Oil newoil = new Oil();
-		newoil.Init(robot.GetPosition());
-		robot.SetOilCount(robot.GetOilCount()-1);
+		if(robot.GetOilCount() > 0){
+			Oil newoil = new Oil();
+			newoil.Init(robot.GetPosition());
+			robot.SetOilCount(robot.GetOilCount()-1);
+		}
 	}
 	
 	public void CreatePutty(){
 		//Test.PrintLog();
-		Putty newputty = new Putty();
-		newputty.Init(robot.GetPosition());
-		robot.SetPuttyCount(robot.GetPuttyCount()-1);
+		if(robot.GetPuttyCount() > 0){
+			Putty newputty = new Putty();
+			newputty.Init(robot.GetPosition());
+			robot.SetPuttyCount(robot.GetPuttyCount()-1);
+		}
 	}
 	
 	public void Turn(){
