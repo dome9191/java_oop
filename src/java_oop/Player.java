@@ -88,11 +88,12 @@ public class Player {
 				}
 			}
 			//ha tudunk irányítani, irányítunk
-			if(robot != null && robot.getCanSetSpeed()){
+			//a robot jump-ja eleve nézi, hogy tudunk-e irányítani
+			if(robot != null){
 				int[] input = GameObjectContainer.GetGameScreen().AskInput("coordinates");
 				//int[] input = Test.AskInput("coordinates");
 				robot.Jump(new Vektor(input[0], input[1]));
-				robot.setCanSetSpeed(true);
+				
 			}
 			SetTotalTime(this.GetTotalTime()-1);
 		}
