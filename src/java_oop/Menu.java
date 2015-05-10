@@ -32,7 +32,7 @@ public class Menu extends JFrame {
 	protected JLabel koridoLabel;
 	protected JSpinner percSpinner;
 	protected JLabel percLabel;
-	protected JSpinner secSpinner;
+	protected JSpinner masopercSpinner;
 	protected JLabel masopercLabel;
 	protected JLabel phoebeLabel;
 	
@@ -73,7 +73,7 @@ public class Menu extends JFrame {
 		            	   Game myscreentest = new Game();
 		            	   
 		            	   //idõbeállítás
-		            	   myscreentest.SetEnvironment((int)percSpinner.getValue()*60, (int)secSpinner.getValue());
+		            	   myscreentest.SetEnvironment((int)percSpinner.getValue()*60,(int)masopercSpinner.getValue());
 		            	   
 		            	   //annyi játékos, amennyit bejelöltek
 		            	   //hozzaírtam egy +1-t
@@ -147,10 +147,10 @@ public class Menu extends JFrame {
 		percLabel.setBounds(130, 85, 46, 23);
 		getContentPane().add(percLabel);
 		
-		secSpinner = new JSpinner();
-		secSpinner.setModel(new SpinnerNumberModel(10, 0, 60, 1));
-		secSpinner.setBounds(85, 121, 39, 20);
-		getContentPane().add(secSpinner);
+		masopercSpinner = new JSpinner();
+		masopercSpinner.setModel(new SpinnerNumberModel(10, 0, 60, 1));
+		masopercSpinner.setBounds(85, 121, 39, 20);
+		getContentPane().add(masopercSpinner);
 		
 		masopercLabel = new JLabel("másodperc");
 		masopercLabel.setBounds(130, 124, 80, 14);

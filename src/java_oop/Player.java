@@ -18,7 +18,6 @@ public class Player {
 		robot.SetPosition(GameObjectContainer.GetRaceTrack().GetStartingPoint());
 		robot.SetSpeed(new Vektor(10,0));
 		//beállítjuk a köridõ számlálót
-		TurnTimeHelper=TurnTime;
 	}
 	
 	public void SetTurnTime(int newtime){
@@ -154,9 +153,9 @@ public class Player {
 	public static int GetTurnTimeHelper(){
 		return TurnTimeHelper;
 	}
-	public static void SetTurnTimeHelper(int newtime){
+	public static void SetTurnTimeHelper(int newTurnTime){
 		//Test.PrintLog();
-		TurnTimeHelper = newtime;
+		TurnTimeHelper = newTurnTime;
 	}
 }
 

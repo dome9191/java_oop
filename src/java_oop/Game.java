@@ -11,7 +11,6 @@ public class Game {
 	private ArrayList<Player> Players;
 	private RaceTrack raceTrack;
 	private int nextplayer = 0;
-	private Timer TurnTimer = new Timer();
 	
 	public Game(){
 		Players = new ArrayList<Player>();
@@ -22,7 +21,6 @@ public class Game {
 		while(!endgame){
 			for(Player i: Players){
 				if(Player.GetTotalTime() > 0){ 
-					TurnTimer.schedule(new TurnTimeTask(), 0, 1000);
 					i.Turn();
 				}
 				else{
@@ -92,6 +90,9 @@ public class Game {
 		//track.Draw();
 		Player.SetTotalTime(TotalTime);
 		Player.SetTurnTimeHelper(TurnTime);
+		for(Player i : Players){
+			i.SetTurnTime(TurnTime);
+		}
 	}
 	
 	public void RemovePlayer(Player removethis){
@@ -133,19 +134,4 @@ public class Game {
 	public void SetScreen(GameScreen myscreen){
 		GameObjectContainer.SetGameScreen(myscreen);
 	}
-}
-
-class TurnTimeTask extends TimerTask {
-
-
-	private int helper;
-
-	@Override
-	public void run() {
-		helper = Player.GetTurnTimeHelper();
-		if(helper > 0)
-			helper = helper-1;
-		Player.SetTurnTimeHelper(helper);
-	}
-	
 }

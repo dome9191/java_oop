@@ -30,11 +30,14 @@ public class GameScreen extends JFrame {
 	private int width = 800;
 	private int height = 600;
 	private Timer TotalTimer;
+	private Timer TurnTimer;
 	
 	public GameScreen(Game currentgame) {
 		myGame = currentgame;
 		TotalTimer = new Timer();
 		TotalTimer.schedule(new TotalTimeTask(), 0, 1000);
+		TurnTimer = new Timer();
+		TurnTimer.schedule(new TurnTimeTask(), 0, 1000);
 		currentgame.SetScreen(this);
 		setSize(width, height);
 		this.setResizable(false);
@@ -224,3 +227,18 @@ class TotalTimeTask extends TimerTask {
 	}
 }
 
+
+class TurnTimeTask extends TimerTask {
+
+
+	private int helper;
+
+	@Override
+	public void run() {
+		helper = Player.GetTurnTimeHelper();
+		if(helper > 0)
+			helper = helper-1;
+		Player.SetTurnTimeHelper(helper);
+	}
+	
+}
