@@ -6,10 +6,10 @@ import java.util.Vector;
 public class Player {
 	
 	private static int TotalTime;
+	private static int TurnTimeHelper;
 	private int TurnTime;
 	private Robot robot;
 	private double Distance = 0;
-	private static int TurnTimeHelper;
 	
 	public Player(){
 		//Test.PrintLog();
@@ -18,6 +18,7 @@ public class Player {
 		robot.SetPosition(GameObjectContainer.GetRaceTrack().GetStartingPoint());
 		robot.SetSpeed(new Vektor(10,0));
 		//beállítjuk a köridõ számlálót
+		TurnTime= TurnTimeHelper;
 	}
 	
 	public void SetTurnTime(int newtime){

@@ -118,7 +118,7 @@ public class Game {
 	public void DrawGame(){
 		//a háttér kirajzolása
 		GameObjectContainer.GetGameScreen().DrawBackground();
-		GameObjectContainer.GetGameScreen().drawTime(Player.GetTurnTimeHelper());
+		GameObjectContainer.GetGameScreen().drawTime(Player.GetTotalTime());
 		//pálya kirajzolása
 		GameObjectContainer.GetRaceTrack().Draw();
 		//akadályok kirajzolása
