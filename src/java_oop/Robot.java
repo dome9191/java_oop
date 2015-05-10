@@ -131,7 +131,7 @@ public class Robot extends GameObject {
 				//pont azonos baromi ritkán lesz a pozíciójuk, radiusra kell vizsgálni
 				/*if(iter.position.Equals(this.position)){*/
 				//akkor történjen ütközés ha a két cucc távolsága kisebb mint a kiterjedéseik összege
-				if((iter != this) && (iter.position.Substract(this.position).Length() < (iter.radius+this.radius))){
+				if((iter != this) && (iter.position.Substract(this.position).Length() < this.radius)){
 					affected.add(iter);
 				}
 			}
@@ -147,7 +147,7 @@ public class Robot extends GameObject {
 			ArrayList<Obstacle> affected = new ArrayList<Obstacle>();
 			for(Obstacle iter: obstaclelist){
 				//itt is
-				if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
+				if(iter.position.Substract(this.position).Length() < this.radius){
 					affected.add(iter);
 				}
 			}
