@@ -46,6 +46,7 @@ public class GameScreen extends JFrame {
 	            myGame.DrawGame();
 	        }
 	    });
+	    
 	    //billentyuzet figyelo
 	    this.addKeyListener(new KeyListener() {
 			@Override
@@ -177,7 +178,7 @@ public class GameScreen extends JFrame {
 		Graphics g = this.getGraphics();
 		g.setColor(new Color(255,140,0));
         g.fillRect(0, 0, 100, 50);
-        writeString("Kör idő: "+Integer.toString(time), 20, 50);
+        writeString("Kert ido: "+Integer.toString(time), 20, 50);
 	}
 	//ugyanaz a fuggveny mint a tesztosztalyban szepen visszaadja hogy mit akarunk
 	public int[] AskInput(String opt){
@@ -217,6 +218,7 @@ class TotalTimeTask extends TimerTask {
 		 {
 			 int helper = Player.GetTotalTime() - 1;
 			 Player.SetTotalTime(helper);
+			 
 		 }
 		
 	}

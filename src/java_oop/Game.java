@@ -3,12 +3,15 @@ package java_oop;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Game {
 	
 	private ArrayList<Player> Players;
 	private RaceTrack raceTrack;
 	private int nextplayer = 0;
+	private Timer TurnTimer = new Timer();
 	
 	public Game(){
 		Players = new ArrayList<Player>();
@@ -19,6 +22,7 @@ public class Game {
 		while(!endgame){
 			for(Player i: Players){
 				if(Player.GetTotalTime() > 0){ 
+					TurnTimer.schedule(new TurnTimeTask(), 0, 1000);
 					i.Turn();
 				}
 				else{
@@ -87,9 +91,7 @@ public class Game {
 		GameObjectContainer.GetRaceTrack().Load();
 		//track.Draw();
 		Player.SetTotalTime(TotalTime);
-		for(Player item:Players){
-			item.SetTurnTime(TurnTime);
-		}
+		Player.SetTurnTimeHelper(TurnTime);
 	}
 	
 	public void RemovePlayer(Player removethis){
@@ -115,7 +117,7 @@ public class Game {
 	public void DrawGame(){
 		//a háttér kirajzolása
 		GameObjectContainer.GetGameScreen().DrawBackground();
-		GameObjectContainer.GetGameScreen().drawTime(Player.GetTotalTime());
+		GameObjectContainer.GetGameScreen().drawTime(Player.GetTurnTimeHelper());
 		//pálya kirajzolása
 		GameObjectContainer.GetRaceTrack().Draw();
 		//akadályok kirajzolása
@@ -131,4 +133,19 @@ public class Game {
 	public void SetScreen(GameScreen myscreen){
 		GameObjectContainer.SetGameScreen(myscreen);
 	}
+}
+
+class TurnTimeTask extends TimerTask {
+
+
+	private int helper;
+
+	@Override
+	public void run() {
+		helper = Player.GetTurnTimeHelper();
+		if(helper > 0)
+			helper = helper-1;
+		Player.SetTurnTimeHelper(helper);
+	}
+	
 }

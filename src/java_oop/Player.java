@@ -9,7 +9,7 @@ public class Player {
 	private int TurnTime;
 	private Robot robot;
 	private double Distance = 0;
-	private int TurnTimeHelper;
+	private static int TurnTimeHelper;
 	
 	public Player(){
 		//Test.PrintLog();
@@ -17,6 +17,8 @@ public class Player {
 		robot.SetIsOnTrack(true);
 		robot.SetPosition(GameObjectContainer.GetRaceTrack().GetStartingPoint());
 		robot.SetSpeed(new Vektor(10,0));
+		//beállítjuk a köridõ számlálót
+		TurnTimeHelper=TurnTime;
 	}
 	
 	public void SetTurnTime(int newtime){
@@ -54,8 +56,7 @@ public class Player {
 	}
 	
 	public void Turn(){
-		//beállítjuk a köridõ számlálót
-		TurnTimeHelper=TurnTime;
+		TurnTimeHelper = TurnTime;
 		//megnézzük, hogy a robotunk még a pályán van-e
 		if(robot != null && robot.GetIsOnTrack()){
 			//meghívjuk az ütközéseket
@@ -150,10 +151,10 @@ public class Player {
 		return TotalTime;
 	}
 	
-	public int GetTurnTimeHelper(){
+	public static int GetTurnTimeHelper(){
 		return TurnTimeHelper;
 	}
-	public void SetTurnTimeHelper(int newtime){
+	public static void SetTurnTimeHelper(int newtime){
 		//Test.PrintLog();
 		TurnTimeHelper = newtime;
 	}
