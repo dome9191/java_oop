@@ -16,8 +16,10 @@ public class Robot extends GameObject {
 	
 	public Robot(){
 		//Test.PrintLog();
-		this.radius = 40;
+		this.radius = 15;
 		GameObjectContainer.AddRobot(this);
+		position = new Vektor(50+(GameObjectContainer.GetRobots().size()*16),300);
+	
 	}
 	
 	public Vektor GetPosition(){

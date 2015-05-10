@@ -8,7 +8,16 @@ public class RaceTrack extends GameObject {
 	private ArrayList<Vektor> Points;
 	private int Width;
 	private Vektor startingpoint;
+	private ArrayList<Vektor> RobotStartingPoints = null;
 	
+	public ArrayList<Vektor> getRobotStartingPoints() {
+		return RobotStartingPoints;
+	}
+
+	public void setRobotStartingPoints(ArrayList<Vektor> robotStartingPoints) {
+		RobotStartingPoints = robotStartingPoints;
+	}
+
 	public RaceTrack(){
 		//Test.PrintLog();
 		GameObjectContainer.AddRaceTrack(this);
@@ -30,6 +39,7 @@ public class RaceTrack extends GameObject {
 					(int)Math.round(Math.sin(Math.toRadians( i ))*300.0)+center.x,
 					(int)Math.round(Math.cos(Math.toRadians( i ))*200.0)+center.y));
 		} 
+		
 	}
 	
 	public void Draw(){

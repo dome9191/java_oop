@@ -10,12 +10,13 @@ public class Player {
 	private int TurnTime;
 	private Robot robot;
 	private double Distance = 0;
+	//private Vektor StartingPosition;
 	
 	public Player(){
 		//Test.PrintLog();
 		robot = new Robot();
 		robot.SetIsOnTrack(true);
-		robot.SetPosition(GameObjectContainer.GetRaceTrack().GetStartingPoint());
+		//robot.SetPosition(StartingPosition);
 		robot.SetSpeed(new Vektor(10,0));
 		//beállítjuk a köridõ számlálót
 		TurnTime= TurnTimeHelper;
