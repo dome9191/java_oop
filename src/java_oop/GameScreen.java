@@ -121,8 +121,11 @@ public class GameScreen extends JFrame {
 	    this.addComponentListener(new ComponentAdapter (){
 	    	public void componentShown ( ComponentEvent e )
 	        {
+	    		synchronized(TotalTimer)
+	    		{
 	            TotalTimer.notify();
 	            GameObjectContainer.GetGameScreen().drawTime(Player.GetTotalTime());
+	    		}
 	        }
 	    });
 	}
@@ -136,9 +139,13 @@ public class GameScreen extends JFrame {
         
     }
 	
-	public void drawLine() {
-		
+	//For the start line
+	public void drawLine(int x1, int y1, int x2, int y2) {
+		Graphics g = this.getGraphics();
+		g.drawLine(x1, y1, x2, y2);
 	}
+	
+	
 	//kirajzolja a hatteret
 	public void DrawBackground(){
 		Graphics g = this.getGraphics();
