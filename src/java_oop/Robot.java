@@ -39,6 +39,7 @@ public class Robot extends GameObject {
 		newspeed = this.speed.Add(clickedvalue);
 		if(canSetSpeed){
 			speed = newspeed;
+			
 		}
 		//hozzáadjuk az összesített értéket az eddigi pozícióhoz, ez az új pozíció
 		position = position.Add(speed);

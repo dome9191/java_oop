@@ -8,7 +8,7 @@ public class Player {
 	private static int TotalTime;
 	private int TurnTime;
 	private Robot robot;
-	private double Distance;
+	private double Distance = 0;
 	
 	public Player(){
 		//Test.PrintLog();
@@ -93,9 +93,10 @@ public class Player {
 				int[] input = GameObjectContainer.GetGameScreen().AskInput("coordinates");
 				//int[] input = Test.AskInput("coordinates");
 				robot.Jump(new Vektor(input[0], input[1]));
+				this.IncreaseDistance(robot.GetSpeed().Length());
 				
 			}
-			SetTotalTime(this.GetTotalTime()-1);
+			SetTotalTime(Player.GetTotalTime()-1);
 		}
 	/*	if(Test.selector == 2){
 			Test.PrintLog();
