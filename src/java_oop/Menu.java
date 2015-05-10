@@ -66,8 +66,6 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				/* ide jön:
 				 * 		-SetGameEnvironment a két idõs jspinner alapján
-				 * 		-AddPlayer annyiszor, ahányszor a játékosszámos jspinner mondja
-				 * 		-Playerek SetObstacleCount az olaj/ragacs spinner alapján
 				 * 		-a Game Start() függvénye utolsónak
 				 */
 				java.awt.EventQueue.invokeLater(new Runnable() {
@@ -75,8 +73,12 @@ public class Menu extends JFrame {
 		            	   Game myscreentest = new Game();
 		            	   myscreentest.SetEnvironment(10, 10);
 		            	   
+		            	   //idõbeállítás
+		            	   
+		            	   
 		            	   //annyi játékos, amennyit bejelöltek
-		            	   for(int i = 1; i < (int)jatekosszamSpinner.getValue(); i++){
+		            	   //hozzaírtam egy +1-t
+		            	   for(int i = 1; i < (int)jatekosszamSpinner.getValue()+1; i++){
 		            		   myscreentest.AddPlayer();
 		            	   }
 		            	   
