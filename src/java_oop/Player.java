@@ -179,6 +179,7 @@ class TurnTimeTask  extends TimerTask{
 	public void run() {
 		if(asd.GetTurnTimeHelper()>0){
 			helper = asd.GetTurnTimeHelper() -1 ;
+			GameObjectContainer.GetGameScreen().drawTime(helper);
 			asd.SetTurnTimeHelper(helper);
 		}
 	}

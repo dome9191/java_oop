@@ -160,6 +160,12 @@ public class GameScreen extends JFrame {
 			drawCircle(width-40, height-30, 15 ,15, Color.DARK_GRAY);
 		}
 	}
+	public void drawTime(int time){
+		Graphics g = this.getGraphics();
+		g.setColor(new Color(255,140,0));
+        g.fillRect(0, 0, 100, 50);
+        writeString("Kör idő: "+Integer.toString(time), 20, 50);
+	}
 	//ugyanaz a függvény mint a tesztosztályban szépen visszaadja hogy mit akarunk
 	public int[] AskInput(String opt){
 		int[] result = new int[2];
