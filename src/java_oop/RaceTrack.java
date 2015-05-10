@@ -19,7 +19,7 @@ public class RaceTrack extends GameObject {
 		//teszt kód
 		//generálunk egy ellipszist....
 		Width = 100;
-		startingpoint = new Vektor(100,200);
+		startingpoint = new Vektor(50,300);
 		Points = new ArrayList<Vektor>();
 		/*for(int i = 0; i<800; i++){
 			Points.add(new Vektor(i, 200));
@@ -38,6 +38,9 @@ public class RaceTrack extends GameObject {
 			i++;
 			GameObjectContainer.GetGameScreen().drawCircle(elem.x, elem.y, Width, Width, color.GRAY);
 		}
+		
+		//Start line drawing
+		GameObjectContainer.GetGameScreen().drawLine(startingpoint.x, startingpoint.y, startingpoint.x+Width, startingpoint.y);
 	}
 	
 	public ArrayList<Vektor> GetPoints(){
