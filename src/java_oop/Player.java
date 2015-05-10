@@ -179,6 +179,7 @@ class TurnTimeTask  extends TimerTask{
 	public void run() {
 		if(asd.GetTurnTimeHelper()>0){
 			helper = asd.GetTurnTimeHelper() -1 ;
+			System.out.println(helper);
 			asd.SetTurnTimeHelper(helper);
 		}
 	}
