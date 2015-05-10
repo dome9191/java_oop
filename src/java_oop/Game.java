@@ -80,7 +80,7 @@ public class Game {
 	public void AddPlayer(){
 		//Test.PrintLog();
 		Players.add(new Player());
-		Players.get(Players.size()-1).SetObstaclesCount(3,3);
+		//Players.get(Players.size()-1).SetObstaclesCount(3,3);
 	}
 	
 	public void SetEnvironment(int TotalTime, int TurnTime){
