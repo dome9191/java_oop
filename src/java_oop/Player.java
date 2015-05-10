@@ -2,6 +2,8 @@ package java_oop;
 
 import java.util.Date;
 import java.util.Vector;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Player {
 	
@@ -9,6 +11,8 @@ public class Player {
 	private int TurnTime;
 	private Robot robot;
 	private double Distance = 0;
+	private Timer TurnTimer;
+	private int TurnTimeHelper;
 	
 	public Player(){
 		//Test.PrintLog();
@@ -53,6 +57,11 @@ public class Player {
 	}
 	
 	public void Turn(){
+		//beállítjuk a köridõ számlálót
+		TurnTimer = new Timer();
+		TurnTimeHelper=TurnTime;
+		TurnTimer.schedule(new TurnTimeTask(this),0,1000);
+		if(TurnTimeHelper>0){
 		//megnézzük, hogy a robotunk még a pályán van-e
 		if(robot != null && robot.GetIsOnTrack()){
 			//meghívjuk az ütközéseket
@@ -96,7 +105,7 @@ public class Player {
 				this.IncreaseDistance(robot.GetSpeed().Length());
 				
 			}
-			SetTotalTime(Player.GetTotalTime()-1);
+		}
 		}
 	/*	if(Test.selector == 2){
 			Test.PrintLog();
@@ -148,4 +157,30 @@ public class Player {
 		} */
 		return TotalTime;
 	}
+	
+	public int GetTurnTimeHelper(){
+		return TurnTimeHelper;
+	}
+	public void SetTurnTimeHelper(int newtime){
+		//Test.PrintLog();
+		TurnTimeHelper = newtime;
+	}
+}
+
+class TurnTimeTask  extends TimerTask{
+
+	private Player asd;
+	private int helper;
+	public TurnTimeTask(Player player) {
+		asd = player;
+	}
+
+	@Override
+	public void run() {
+		if(asd.GetTurnTimeHelper()>0){
+			helper = asd.GetTurnTimeHelper() -1 ;
+			asd.SetTurnTimeHelper(helper);
+		}
+	}
+	
 }

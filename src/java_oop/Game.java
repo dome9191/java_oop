@@ -3,12 +3,15 @@ package java_oop;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Game {
 	
 	private ArrayList<Player> Players;
 	private RaceTrack raceTrack;
 	private int nextplayer = 0;
+	private Timer TotalTimer;
 	
 	public Game(){
 		Players = new ArrayList<Player>();
@@ -17,6 +20,8 @@ public class Game {
 	public void Start(){
 		boolean endgame = false;
 		while(!endgame){
+			TotalTimer = new Timer();
+			TotalTimer.schedule(new TotalTimeTask(), 0, 1000);
 			for(Player i: Players){
 				if(Player.GetTotalTime() > 0){ 
 					i.Turn();
@@ -129,5 +134,18 @@ public class Game {
 	
 	public void SetScreen(GameScreen myscreen){
 		GameObjectContainer.SetGameScreen(myscreen);
+	}
+}
+
+ class TotalTimeTask extends TimerTask {
+
+	@Override
+	public void run() {
+		 if (Player.GetTotalTime()>0)
+		 {
+			 int helper = Player.GetTotalTime() - 1;
+			 Player.SetTotalTime(helper);
+		 }
+		
 	}
 }
