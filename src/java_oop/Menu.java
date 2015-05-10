@@ -71,10 +71,9 @@ public class Menu extends JFrame {
 				java.awt.EventQueue.invokeLater(new Runnable() {
 		              public void run() {
 		            	   Game myscreentest = new Game();
-		            	   myscreentest.SetEnvironment(10, 10);
 		            	   
 		            	   //idõbeállítás
-		            	   
+		            	   myscreentest.SetEnvironment((int)percSpinner.getValue(), (int)secSpinner.getValue());
 		            	   
 		            	   //annyi játékos, amennyit bejelöltek
 		            	   //hozzaírtam egy +1-t
