@@ -136,7 +136,7 @@ public class Player {
 			testOil.Init(robot.GetPosition());
 		
 		} */
-	}
+	//}
 }
 	public static void SetTotalTime(int newTotalTime){
 		//Test.PrintLog();
