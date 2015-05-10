@@ -73,7 +73,7 @@ public class Menu extends JFrame {
 		            	   Game myscreentest = new Game();
 		            	   
 		            	   //idõbeállítás
-		            	   myscreentest.SetEnvironment((int)percSpinner.getValue()*60, (int)secSpinner.getValue());
+		            	   myscreentest.SetEnvironment((((int)percSpinner.getValue())*60), (int)secSpinner.getValue());
 		            	   
 		            	   //annyi játékos, amennyit bejelöltek
 		            	   //hozzaírtam egy +1-t

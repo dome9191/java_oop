@@ -61,7 +61,8 @@ public class Player {
 		TurnTimer = new Timer();
 		TurnTimeHelper=TurnTime;
 		TurnTimer.schedule(new TurnTimeTask(this),0,1000);
-		if(TurnTimeHelper>0){
+		//valamiért bugol a feltétel
+		//if(TurnTimeHelper > 0){
 		//megnézzük, hogy a robotunk még a pályán van-e
 		if(robot != null && robot.GetIsOnTrack()){
 			//meghívjuk az ütközéseket
@@ -106,7 +107,6 @@ public class Player {
 				
 			}
 		}
-		}
 	/*	if(Test.selector == 2){
 			Test.PrintLog();
 			robot.GetIsOnTrack();
@@ -137,7 +137,7 @@ public class Player {
 		
 		} */
 	}
-	
+}
 	public static void SetTotalTime(int newTotalTime){
 		//Test.PrintLog();
 		TotalTime = newTotalTime;
@@ -164,7 +164,7 @@ public class Player {
 	public void SetTurnTimeHelper(int newtime){
 		//Test.PrintLog();
 		TurnTimeHelper = newtime;
-	}
+	//}
 }
 
 class TurnTimeTask  extends TimerTask{
@@ -179,7 +179,6 @@ class TurnTimeTask  extends TimerTask{
 	public void run() {
 		if(asd.GetTurnTimeHelper()>0){
 			helper = asd.GetTurnTimeHelper() -1 ;
-			System.out.println(helper);
 			asd.SetTurnTimeHelper(helper);
 		}
 	}
