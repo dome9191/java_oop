@@ -9,7 +9,7 @@ public class Robot extends GameObject {
 	private Vektor speed;
 	private int oil;
 	private int putty;
-	private boolean isOnTrack;
+	boolean isOnTrack;
 	//sebesség állításának tiltására
 	private boolean canSetSpeed = true;
 	

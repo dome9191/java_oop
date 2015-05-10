@@ -8,7 +8,7 @@ import java.util.TimerTask;
 
 public class Game {
 	
-	private ArrayList<Player> Players;
+	static ArrayList<Player> Players;
 	private RaceTrack raceTrack;
 	private int nextplayer = 0;
 	

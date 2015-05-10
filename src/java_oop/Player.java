@@ -161,6 +161,10 @@ public class Player {
 		//Test.PrintLog();
 		TurnTimeHelper = newTurnTime;
 	}
+	
+	public double GetDistance(){
+		return Distance;
+	}
 }
 
 
