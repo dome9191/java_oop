@@ -2,8 +2,6 @@ package java_oop;
 
 import java.util.Date;
 import java.util.Vector;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Player {
 	
@@ -11,7 +9,6 @@ public class Player {
 	private int TurnTime;
 	private Robot robot;
 	private double Distance = 0;
-	private Timer TurnTimer;
 	private int TurnTimeHelper;
 	
 	public Player(){
@@ -58,11 +55,7 @@ public class Player {
 	
 	public void Turn(){
 		//beállítjuk a köridõ számlálót
-		TurnTimer = new Timer();
 		TurnTimeHelper=TurnTime;
-		TurnTimer.schedule(new TurnTimeTask(this),0,1000);
-		//valamiért bugol a feltétel
-		//if(TurnTimeHelper > 0){
 		//megnézzük, hogy a robotunk még a pályán van-e
 		if(robot != null && robot.GetIsOnTrack()){
 			//meghívjuk az ütközéseket
@@ -136,7 +129,6 @@ public class Player {
 			testOil.Init(robot.GetPosition());
 		
 		} */
-	//}
 }
 	public static void SetTotalTime(int newTotalTime){
 		//Test.PrintLog();
@@ -165,25 +157,6 @@ public class Player {
 		//Test.PrintLog();
 		TurnTimeHelper = newtime;
 	}
-}
-
-class TurnTimeTask  extends TimerTask{
-
-	private Player asd;
-	private int helper;
-	public TurnTimeTask(Player player) {
-		asd = player;
-	}
-
-	@Override
-	public void run() {
-		if(asd.GetTurnTimeHelper()>0){
-			helper = asd.GetTurnTimeHelper() -1 ;
-			GameObjectContainer.GetGameScreen().drawTime(helper);
-			asd.SetTurnTimeHelper(helper);
-		}
-	}
-	
 }
 
 

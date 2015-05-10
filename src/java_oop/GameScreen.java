@@ -18,6 +18,8 @@ import java.awt.event.MouseListener;
 import javax.swing.event.*;
 
 import java.awt.geom.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameScreen extends JFrame {
 	
@@ -27,21 +29,24 @@ public class GameScreen extends JFrame {
 	private int wantputty = 0;
 	private int width = 800;
 	private int height = 600;
+	private Timer TotalTimer;
 	
 	public GameScreen(Game currentgame) {
 		myGame = currentgame;
+		TotalTimer = new Timer();
+		TotalTimer.schedule(new TotalTimeTask(), 0, 1000);
 		currentgame.SetScreen(this);
 		setSize(width, height);
 		this.setResizable(false);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    //induláskor rajzoljuk ki a játékot
+	    //indulaskor rajzoljuk ki a jatekot
 	    this.addComponentListener(new ComponentAdapter (){
 	    	public void componentShown ( ComponentEvent e )
 	        {
 	            myGame.DrawGame();
 	        }
 	    });
-	    //billentyűzet figyelő
+	    //billentyuzet figyelo
 	    this.addKeyListener(new KeyListener() {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
@@ -79,7 +84,7 @@ public class GameScreen extends JFrame {
 				
 			}
         });
-	    //egér figyelő
+	    //eger figyelo
 	    this.addMouseListener(new MouseListener() {      
             public void mouseClicked(MouseEvent mouse) {
             	x = mouse.getX();
@@ -108,8 +113,16 @@ public class GameScreen extends JFrame {
 				
 			}    
         });
+
+	    this.addComponentListener(new ComponentAdapter (){
+	    	public void componentShown ( ComponentEvent e )
+	        {
+	            TotalTimer.notify();
+	            GameObjectContainer.GetGameScreen().drawTime(Player.GetTotalTime());
+	        }
+	    });
 	}
-	//kör rajzoló függvény
+	//kor rajzolas fuggveny
 	public void drawCircle(int x, int y, int w, int h, Color color) {
         Graphics g = this.getGraphics();
         g.setColor(color);
@@ -122,7 +135,7 @@ public class GameScreen extends JFrame {
 	public void drawLine() {
 		
 	}
-	//kirajzolja a hátteret
+	//kirajzolja a hatteret
 	public void DrawBackground(){
 		Graphics g = this.getGraphics();
 		g.setColor(new Color(255,140,0));
@@ -130,7 +143,7 @@ public class GameScreen extends JFrame {
         drawOilGui();
         drawPuttyGui();
 	}
-	//kiír valami szöveget tetszőleges helyre
+	//kiir valami szoveget tetszoleges helyre
 	private void writeString(String i, int x, int y){
 		Graphics g = this.getGraphics();
 		Font font = new Font("Serif", Font.PLAIN, 20);
@@ -138,7 +151,7 @@ public class GameScreen extends JFrame {
 		g.setColor(Color.BLACK);
 		g.drawString(i, x, y);
 	}
-	//kirajzolja az olaj választót
+	//kirajzolja az olaj valasztast
 	private void drawOilGui(){
 		writeString("Olajat lerakni", width-180, height-45);
 		if(wantoil == 1){
@@ -149,7 +162,7 @@ public class GameScreen extends JFrame {
 			drawCircle(width-40, height-60, 15 ,15, Color.DARK_GRAY);
 		}
 	}
-	//kirajzolja a ragacs választót
+	//kirajzolja a ragacs valasztast
 	private void drawPuttyGui(){
 		writeString("Ragacsot lerakni", width-180, height-15);
 		if(wantputty == 1){
@@ -166,7 +179,7 @@ public class GameScreen extends JFrame {
         g.fillRect(0, 0, 100, 50);
         writeString("Kör idő: "+Integer.toString(time), 20, 50);
 	}
-	//ugyanaz a függvény mint a tesztosztályban szépen visszaadja hogy mit akarunk
+	//ugyanaz a fuggveny mint a tesztosztalyban szepen visszaadja hogy mit akarunk
 	public int[] AskInput(String opt){
 		int[] result = new int[2];
 		switch(opt)
@@ -194,3 +207,18 @@ public class GameScreen extends JFrame {
 	return result;
 	}
 }
+
+
+class TotalTimeTask extends TimerTask {
+
+	@Override
+	public void run() {
+		 if (Player.GetTotalTime()>0)
+		 {
+			 int helper = Player.GetTotalTime() - 1;
+			 Player.SetTotalTime(helper);
+		 }
+		
+	}
+}
+
