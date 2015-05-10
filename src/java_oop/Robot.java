@@ -131,7 +131,7 @@ public class Robot extends GameObject {
 				//pont azonos baromi ritkán lesz a pozíciójuk, radiusra kell vizsgálni
 				/*if(iter.position.Equals(this.position)){*/
 				//akkor történjen ütközés ha a két cucc távolsága kisebb mint a kiterjedéseik összege
-				if((iter != this) && (iter.position.Substract(this.position).Length() < this.radius)){
+				if((iter != this) && (iter.position.Substract(this.position).Length() < (iter.radius+this.radius))){
 					affected.add(iter);
 				}
 			}
