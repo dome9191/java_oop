@@ -76,16 +76,18 @@ public class Player {
 					//lerakunk egy ragacsot
 					if(robot.GetPuttyCount() > 0)
 					{
-						Putty myputty = new Putty();
-						myputty.Init(robot.GetPosition());
+						CreatePutty();
+						//Putty myputty = new Putty();
+						//myputty.Init(robot.GetPosition());
 					}
 					break;
 				case 2:
 					//lerakunk egy olajfoltot
 					if(robot.GetOilCount() > 0)
 					{
-						Oil myoil = new Oil();
-						myoil.Init(robot.GetPosition());
+						CreateOil();
+						//Oil myoil = new Oil();
+						//myoil.Init(robot.GetPosition());
 					}
 					break;
 				default:
