@@ -118,16 +118,6 @@ public class GameScreen extends JFrame {
 			}    
         });
 
-	    this.addComponentListener(new ComponentAdapter (){
-	    	public void componentShown ( ComponentEvent e )
-	        {
-	    		synchronized(TotalTimer)
-	    		{
-	            TotalTimer.notify();
-	            GameObjectContainer.GetGameScreen().drawTime(Player.GetTotalTime());
-	    		}
-	        }
-	    });
 	}
 	//kor rajzolas fuggveny
 	public void drawCircle(int x, int y, int w, int h, Color color) {
