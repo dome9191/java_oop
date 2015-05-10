@@ -164,7 +164,7 @@ public class Player {
 	public void SetTurnTimeHelper(int newtime){
 		//Test.PrintLog();
 		TurnTimeHelper = newtime;
-	//}
+	}
 }
 
 class TurnTimeTask  extends TimerTask{
@@ -184,3 +184,7 @@ class TurnTimeTask  extends TimerTask{
 	}
 	
 }
+
+
+
+
