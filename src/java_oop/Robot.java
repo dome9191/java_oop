@@ -139,11 +139,15 @@ public class Robot extends GameObject {
 		if(isOnTrack){
 			//elõször az akadályokat ellenõrizzük, hogy kisrobot ütközés esetén az újonnan lerakott akadály ne legyen hatással a robotra
 			ArrayList<Obstacle> obstaclelist = GameObjectContainer.GetObstacles();
+			ArrayList<Obstacle> affected = new ArrayList<Obstacle>();
 			for(Obstacle iter: obstaclelist){
 				//itt is
 				if(iter.position.Substract(this.position).Length() < (iter.radius+this.radius)){
-					iter.Affect(this);
+					affected.add(iter);
 				}
+			}
+			for(Obstacle iter : affected){
+				iter.Affect(this);
 			}
 			
 			ArrayList<SweeperRobot> sweeperlist = GameObjectContainer.GetSweeperRobot();
